@@ -1,10 +1,10 @@
-# wbc-ui
+# web-components-js
 
 ## Install
 - npm
 
 ```shell
-npm i wbc-ui
+npm i web-components-js
 ```
 
 ## License

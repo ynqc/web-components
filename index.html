@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>web components js</title>
+	<style>
+		awc-icon {
+			margin-left: 20px;
+		}
+
+		awc-loading {
+			margin-left: 20px;
+		}
+
+		awc-button {
+			margin-left: 20px;
+		}
+
+		.button {
+			font-size: 20px;
+		}
+
+		.pop-body {
+			margin: 20px;
+		}
+
+		.pop-list a {
+			display: block;
+			padding: 0 .8em;
+			line-height: 36px;
+		}
+
+		.pop-menu awc-button,
+		.pop-menu awc-popover {
+			display: flex;
+			margin: 0;
+			justify-content: flex-start;
+		}
+
+		.pop-menu awc-popover:hover>awc-button,
+		.pop-menu awc-popover:focus-within>awc-button {
+			color: var(--themeColor, #42b983);
+		}
+
+		.pop-menu>awc-popbody awc-popbody {
+			margin-left: -10px;
+		}
+
+		h3 {
+			color: #42b983;
+			font-size: 24px;
+		}
+
+		.awc-dropdown {
+			width: 220px;
+			height: 30px;
+		}
+
+		.awc-link {
+			display: block;
+			padding: 0 .8em;
+		}
+
+		.image {
+			width: 100px;
+			height: 100px;
+		}
+
+		.pagination {
+			font-size: 20px;
+		}
+
+		.pagination-demo {
+			display: flex;
+			white-space: nowrap;
+			align-items: center;
+		}
+
+		.pagination-demo>* {
+			margin-bottom: 0;
+		}
+
+		.pagination-demo>span {
+			margin-right: 10px;
+		}
+
+		.pagination-demo awc-input {
+			width: 50px;
+		}
+
+		.rate-color {
+			color: yellow
+		}
+
+		awc-tabs[type="card"] {
+			background: #f3f3f3;
+		}
+
+		.header-link {
+			display: block;
+			text-decoration: none;
+			color: #42b983;
+			font-size: 16px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="header">
+		<a href="#icon" class="header-link">icon</a>
+		<a href="#loading" class="header-link">loading</a>
+		<a href="#button" class="header-link">button</a>
+		<a href="#popover" class="header-link">popover</a>
+		<a href="#dialog" class="header-link">dialog</a>
+		<a href="#message" class="header-link">message</a>
+		<a href="#tooltip" class="header-link">tooltip</a>
+		
+		<a href="#dropdown" class="header-link">dropdown</a>
+		<a href="#input" class="header-link">input</a>
+		<a href="#textarea" class="header-link">textarea</a>
+		<a href="#checkbox" class="header-link">checkbox</a>
+		<a href="#radio" class="header-link">radio</a>
+		<a href="#switch" class="header-link">switch</a>
+		<a href="#form" class="header-link">form</a>
+		
+		<a href="#pagination" class="header-link">pagination</a>
+		<a href="#rate" class="header-link">rate</a>
+		<a href="#slide" class="header-link">slide</a>
+		<a href="#tab" class="header-link">tab</a>
+		<a href="#image" class="header-link">image</a>
+	</div>
+	<div class="content" id="icon">
+		<h3>ICON</h3>
+		<h4>icon name</h4>
+		<awc-icon size="30" name="plus-square"></awc-icon>
+		<awc-icon size="30" name="plus-circle"></awc-icon>
+		<awc-icon size="30" name="user"></awc-icon>
+		<awc-icon size="30" name="setting"></awc-icon>
+		<h4>icon size</h4>
+		<awc-icon name="plus-square" size="20"></awc-icon>
+		<awc-icon name="plus-circle" size="30"></awc-icon>
+		<awc-icon name="user" size="40"></awc-icon>
+		<awc-icon name="setting" size="50"></awc-icon>
+		<h4>icon color</h4>
+		<awc-icon name="plus-square" color="orangered"></awc-icon>
+		<awc-icon name="plus-circle" color="#1E90FF"></awc-icon>
+		<awc-icon name="user" color="#F44336"></awc-icon>
+		<awc-icon name="setting" color="#3F51B5"></awc-icon>
+		<h4>icon loading</h4>
+		<awc-icon size="40" name="reload" loading color="orangered"></awc-icon>
+		<awc-icon size="40" name="sync" loading color="#1E90FF"></awc-icon>
+		<awc-icon size="40" name="plus-circle" loading color="#F44336"></awc-icon>
+		<awc-icon size="40" name="setting" loading color="#3F51B5"></awc-icon>
+	</div>
+	<div class="content" id="loading">
+		<h3>LOADING</h3>
+		<h4>loading size</h4>
+		<awc-loading></awc-loading>
+		<awc-loading size="30"></awc-loading>
+		<awc-loading size="40"></awc-loading>
+		<awc-loading size="50"></awc-loading>
+		<h4>loading color</h4>
+		<awc-loading size="40"></awc-loading>
+		<awc-loading size="40" color="green"></awc-loading>
+		<awc-loading size="40" color="olivedrab"></awc-loading>
+		<awc-loading size="40" color="orange"></awc-loading>
+		<h4>loading other</h4>
+		<awc-loading style="flex-direction:column">loading...</awc-loading>
+	</div>
+	<div class="content" id="button">
+		<h3>BUTTON</h3>
+		<h4>type</h4>
+		<awc-button type="primary" id="btn">primary</awc-button>
+		<awc-button type="dashed">dashed</awc-button>
+		<awc-button type="text">text</awc-button>
+		<awc-button>default</awc-button>
+		<h4>disabled</h4>
+		<awc-button disabled type="primary">primary</awc-button>
+		<awc-button disabled type="dashed">dashed</awc-button>
+		<awc-button disabled type="text">text</awc-button>
+		<awc-button disabled>default</awc-button>
+		<h4>loading</h4>
+		<awc-button type="primary" loading>loading</awc-button>
+		<h4>icon</h4>
+		<awc-button type="dashed" icon="search">search</awc-button>
+		<awc-button>right <awc-icon name="right"></awc-icon>
+		</awc-button>
+		<h4>block</h4>
+		<awc-button type="primary" block class="button">primary</awc-button>
+		<awc-button type="dashed" block>dashed</awc-button>
+		<awc-button type="text" block>text</awc-button>
+		<awc-button block>default</awc-button>
+		<h4>event</h4>
+		<awc-button onclick="onClick(event)" onfocus="onFocus(event)" onblur="onBlur(event)">primary</awc-button>
+		<awc-button type="primary" onclick="this.previousElementSibling.focus()">Focus</awc-button>
+	</div>
+	<div class="content" id="popover">
+		<h3>POPOVER</h3>
+		<h4>simple</h4>
+		<awc-popover content="hello world">
+			<awc-button>POP</awc-button>
+		</awc-popover>
+		<h4>customize content</h4>
+		<awc-popover>
+			<awc-button>POP</awc-button>
+			<awc-popbody>
+				<div class="pop-body">hello world</div>
+			</awc-popbody>
+		</awc-popover>
+		<h4>type confirm</h4>
+		<awc-popover type="confirm" onsubmit="onSubmit(event)" oncancel="onCancel(event)" title="Title"
+			content="Hello world">
+			<awc-button>pop confirm</awc-button>
+		</awc-popover>
+		<awc-popover>
+			<awc-button>pop confirm customize content</awc-button>
+			<awc-popbody title="Title" type="confirm" onsubmit="onSubmit(event)">
+				<div class="pop-body">hello world</div>
+			</awc-popbody>
+		</awc-popover>
+		<h4>type pane</h4>
+		<awc-popover type="pane" title="Title" content="Content">
+			<awc-button>pop pane</awc-button>
+		</awc-popover>
+		<h4>Customize the prompt box</h4>
+		<awc-popover>
+			<awc-tooltip tips="More">
+				<awc-icon size="16" name="question-circle"></awc-icon>
+			</awc-tooltip>
+			<awc-popbody type="pane" title="Title">
+				<div class="pop-tips">
+					<div>One</div>
+					<div>Two</div>
+					<div>Three</div>
+					<div>Four</div>
+					<div>Five</div>
+					<div>Six</div>
+					<div>Seven</div>
+					<div>Eight</div>
+				</div>
+			</awc-popbody>
+		</awc-popover>
+		<h4>Customize dropdown box</h4>
+		<awc-popover>
+			<awc-button>pop list</awc-button>
+			<awc-popbody>
+				<div class="pop-list">
+					<a href="#">Link1</a>
+					<a href="#">Link2</a>
+					<a href="#">Link3</a>
+				</div>
+			</awc-popbody>
+		</awc-popover>
+		<h4>disabled</h4>
+		<awc-popover disabled>
+			<awc-button>pop list</awc-button>
+			<awc-popbody>
+				<div class="pop-list">
+					<a href="#">Link1</a>
+					<a href="#">Link2</a>
+					<a href="#">Link3</a>
+				</div>
+			</awc-popbody>
+		</awc-popover>
+		<h4>Direction</h4>
+		<awc-popover dir="top" type="confirm" title="Title" content="content">
+			<awc-button>top</awc-button>
+		</awc-popover>
+		<awc-popover dir="right" type="confirm" onsubmit="console.log('ok')" title="Title" content="content">
+			<awc-button>right</awc-button>
+		</awc-popover>
+		<awc-popover dir="bottom" type="confirm" onsubmit="console.log('ok')" title="Title" content="content">
+			<awc-button>bottom</awc-button>
+		</awc-popover>
+		<awc-popover dir="left" type="confirm" onsubmit="console.log('ok')" title="Title" content="content">
+			<awc-button>left</awc-button>
+		</awc-popover>
+		<awc-popover dir="lefttop" type="confirm" onsubmit="console.log('ok')" title="Title" content="content">
+			<awc-button>lefttop</awc-button>
+		</awc-popover>
+		<awc-popover dir="leftbottom" type="confirm" onsubmit="console.log('ok')" title="Title" content="content">
+			<awc-button>leftbottom</awc-button>
+		</awc-popover>
+		<awc-popover dir="topleft" type="confirm" onsubmit="console.log('ok')" title="Title" content="content">
+			<awc-button>topleft</awc-button>
+		</awc-popover>
+		<awc-popover dir="topright" type="confirm" onsubmit="console.log('ok')" title="Title" content="content">
+			<awc-button>topright</awc-button>
+		</awc-popover>
+		<awc-popover dir="righttop" type="confirm" onsubmit="console.log('ok')" title="Title" content="content">
+			<awc-button>righttop</awc-button>
+		</awc-popover>
+		<awc-popover dir="rightbottom" type="confirm" onsubmit="console.log('ok')" title="Title" content="content">
+			<awc-button>rightbottom</awc-button>
+		</awc-popover>
+		<awc-popover dir="bottomleft" type="confirm" onsubmit="console.log('ok')" title="Title" content="content">
+			<awc-button>bottomleft</awc-button>
+		</awc-popover>
+		<awc-popover dir="bottomright" type="confirm" onsubmit="console.log('ok')" title="Title" content="content">
+			<awc-button>bottomright</awc-button>
+		</awc-popover>
+		<h4>Trigger</h4>
+		<awc-popover trigger="hover" dir="top">
+			<awc-button>hover</awc-button>
+			<awc-popbody>
+				<div class="pop-list">
+					<a href="#">Link1</a>
+					<a href="#">Link2</a>
+					<a href="#">Link3</a>
+				</div>
+			</awc-popbody>
+		</awc-popover>
+		<awc-popover trigger="focus">
+			<awc-button>focus</awc-button>
+			<awc-popbody>
+				<div class="pop-list">
+					<a href="#">Link1</a>
+					<a href="#">Link2</a>
+					<a href="#">Link3</a>
+				</div>
+			</awc-popbody>
+		</awc-popover>
+		<awc-popover trigger="contextmenu">
+			<awc-button>contextmenu</awc-button>
+			<awc-popbody>
+				<div class="pop-list">
+					<a href="#">Link1</a>
+					<a href="#">Link2</a>
+					<a href="#">Link3</a>
+				</div>
+			</awc-popbody>
+		</awc-popover>
+		<h4>Open - Closed</h4>
+		<awc-popover>
+			<awc-tooltip tips="More">
+				<awc-icon size="16" name="question-circle"></awc-icon>
+			</awc-tooltip>
+			<awc-popbody type="pane" title="Title">
+				<div class="pop-tips">
+					<div>One</div>
+					<div>Two</div>
+					<div>Three</div>
+					<div>Four</div>
+					<div>Five</div>
+					<div>Six</div>
+					<div>Seven</div>
+					<div>Eight</div>
+				</div>
+				<awc-button onclick="this.parentNode.open = false;">Closed</awc-button>
+			</awc-popbody>
+		</awc-popover>
+		<awc-popover>
+			<awc-tooltip tips="More">
+				<awc-icon size="16" name="question-circle"></awc-icon>
+			</awc-tooltip>
+			<awc-popbody type="pane" title="Title">
+				<div class="pop-tips">
+					<div>One</div>
+					<div>Two</div>
+					<div>Three</div>
+					<div>Four</div>
+					<div>Five</div>
+					<div>Six</div>
+					<div>Seven</div>
+					<div>Eight</div>
+				</div>
+				<awc-button autoclose>Closed</awc-button>
+			</awc-popbody>
+		</awc-popover>
+		<h4>Example Dropdown</h4>
+		<awc-popover class="pop-user">
+			<awc-button type="text" shape="circle" icon="user"></awc-button>
+			<awc-popbody>
+				<awc-button block type="text">name</awc-button>
+				<awc-button block type="text">sex</awc-button>
+				<awc-button block type="text">age</awc-button>
+				<awc-button block type="text">class</awc-button>
+			</awc-popbody>
+		</awc-popover>
+		<h4>Example Menu</h4>
+		<awc-popover class="pop-menu" dir="righttop">
+			<awc-button>click Menu</awc-button>
+			<awc-popbody>
+				<awc-popover dir="righttop">
+					<awc-button block type="text">itemA<awc-icon name="right"></awc-icon>
+					</awc-button>
+					<awc-popbody>
+						<awc-button block type="text">subMenu1</awc-button>
+						<awc-button block type="text">subMenu2</awc-button>
+						<awc-button block type="text">subMenu3</awc-button>
+						<awc-button block type="text">subMenu4</awc-button>
+					</awc-popbody>
+				</awc-popover>
+				<awc-popover dir="righttop">
+					<awc-button block type="text">itemB<awc-icon name="right"></awc-icon>
+					</awc-button>
+					<awc-popbody>
+						<awc-popover dir="righttop">
+							<awc-button block type="text">sub-itemB<awc-icon name="right"></awc-icon>
+							</awc-button>
+							<awc-popbody>
+								<awc-button block type="text">subMenu1</awc-button>
+								<awc-button block type="text">subMenu2</awc-button>
+								<awc-button block type="text">subMenu3</awc-button>
+							</awc-popbody>
+						</awc-popover>
+						<awc-button block type="text">subMenu2</awc-button>
+						<awc-button block type="text">subMenu3</awc-button>
+						<awc-button block type="text">subMenu4</awc-button>
+					</awc-popbody>
+				</awc-popover>
+				<awc-button block type="text">itemC</awc-button>
+			</awc-popbody>
+		</awc-popover>
+	</div>
+	<div class="content" id="tooltip">
+		<h3>TOOLTIP</h3>
+		<h4>show tooltip</h4>
+		<awc-tooltip tips="this is a tooltip">
+			<awc-button>button</awc-button>
+		</awc-tooltip>
+		<h4>change tooltip</h4>
+		<awc-tooltip tips="this is a tooltip">
+			<awc-button>button</awc-button>
+		</awc-tooltip>
+		<awc-button type="primary" onclick="this.previousElementSibling.tips='this is a new tip!'">change tooltip
+		</awc-button>
+		<h4>Direction</h4>
+		<awc-tooltip dir="top" tips="some tips">
+			<awc-button>top</awc-button>
+		</awc-tooltip>
+		<awc-tooltip dir="right" tips="some tips">
+			<awc-button>right</awc-button>
+		</awc-tooltip>
+		<awc-tooltip dir="bottom" tips="some tips">
+			<awc-button>bottom</awc-button>
+		</awc-tooltip>
+		<awc-tooltip dir="left" tips="some tips">
+			<awc-button>left</awc-button>
+		</awc-tooltip>
+		<awc-tooltip dir="topleft" tips="some tips">
+			<awc-button>topleft</awc-button>
+		</awc-tooltip>
+		<awc-tooltip dir="topright" tips="some tips">
+			<awc-button>topright</awc-button>
+		</awc-tooltip>
+		<awc-tooltip dir="righttop" tips="some tips">
+			<awc-button>righttop</awc-button>
+		</awc-tooltip>
+		<awc-tooltip dir="rightbottom" tips="some tips">
+			<awc-button>rightbottom</awc-button>
+		</awc-tooltip>
+		<awc-tooltip dir="bottomleft" tips="some tips">
+			<awc-button>bottomleft</awc-button>
+		</awc-tooltip>
+		<awc-tooltip dir="bottomright" tips="some tips">
+			<awc-button>bottomright</awc-button>
+		</awc-tooltip>
+		<awc-tooltip dir="lefttop" tips="some tips">
+			<awc-button>lefttop</awc-button>
+		</awc-tooltip>
+		<awc-tooltip dir="leftbottom" tips="some tips">
+			<awc-button>leftbottom</awc-button>
+		</awc-tooltip>
+		<h4>Direction Auto</h4>
+		<awc-tooltip tips="some tips" dir="auto">
+			<awc-button>auto</awc-button>
+		</awc-tooltip>
+		<h4>Type</h4>
+		<awc-tooltip tips="success tips" type="success">
+			<awc-button>success</awc-button>
+		</awc-tooltip>
+		<awc-tooltip tips="warning tips" type="warning">
+			<awc-button>warning</awc-button>
+		</awc-tooltip>
+		<awc-tooltip tips="error tips" type="error">
+			<awc-button>error</awc-button>
+		</awc-tooltip>
+		<h4>Color</h4>
+		<awc-tooltip tips="some tips" color="skyblue">
+			<awc-button>custom color</awc-button>
+		</awc-tooltip>
+		<h4>Show</h4>
+		<awc-tooltip tips="some tips" show="true">
+			<awc-button>tips is show</awc-button>
+		</awc-tooltip>
+		<awc-switch checked onchange="this.previousElementSibling.show = this.checked;"></awc-switch>
+	</div>
+	<div class="content" id="dropdown">
+		<h3>DROPDOWN</h3>
+		<h4>dropdown</h4>
+		<awc-dropdown>
+			<awc-option value="1">Option1</awc-option>
+			<awc-option value="2">Option2</awc-option>
+			<awc-option value="3">Option3</awc-option>
+		</awc-dropdown>
+		<h4>Type</h4>
+		<awc-dropdown>
+			<awc-option value="1">Option1</awc-option>
+			<awc-option value="2">Option2</awc-option>
+			<awc-option value="3">Option3</awc-option>
+		</awc-dropdown>
+		<awc-dropdown type="text">
+			<awc-option value="1">Option1</awc-option>
+			<awc-option value="2">Option2</awc-option>
+			<awc-option value="3">Option3</awc-option>
+		</awc-dropdown>
+		<awc-dropdown type="primary">
+			<awc-option value="1">Option1</awc-option>
+			<awc-option value="2">Option2</awc-option>
+			<awc-option value="3">Option3</awc-option>
+		</awc-dropdown>
+		<awc-dropdown type="dashed">
+			<awc-option value="1">Option1</awc-option>
+			<awc-option value="2">Option2</awc-option>
+			<awc-option value="3">Option3</awc-option>
+		</awc-dropdown>
+		<h4>Block</h4>
+		<awc-dropdown block>
+			<awc-option value="1">Option1</awc-option>
+			<awc-option value="2">Option2</awc-option>
+			<awc-option value="3">Option3</awc-option>
+		</awc-dropdown>
+		<h4>Default Value</h4>
+		<awc-dropdown defaultvalue="2">
+			<awc-option value="1">Option1</awc-option>
+			<awc-option value="2">Option2</awc-option>
+			<awc-option value="3">Option3</awc-option>
+		</awc-dropdown>
+		<h4>Placeholder</h4>
+		<awc-dropdown placeholder="Select a item">
+			<awc-option value="1">Option1</awc-option>
+			<awc-option value="2">Option2</awc-option>
+			<awc-option value="3">Option3</awc-option>
+		</awc-dropdown>
+		<h4>Disabled</h4>
+		<awc-dropdown disabled>
+			<awc-option value="1">Option1</awc-option>
+			<awc-option value="2">Option2</awc-option>
+			<awc-option value="3">Option3</awc-option>
+		</awc-dropdown>
+		<awc-switch checked onchange="this.previousElementSibling.disabled = this.checked;"></awc-switch>
+		<awc-dropdown>
+			<awc-option value="1">Option1</awc-option>
+			<awc-option value="2" disabled>Option2</awc-option>
+			<awc-option value="3">Option3</awc-option>
+		</awc-dropdown>
+		<h4>Search</h4>
+		<awc-dropdown search>
+			<awc-option value="beijing" key="beijing-bj">BEIJING</awc-option>
+			<awc-option value="shnaghai" key="shnaghai-sh">SHANGHAI</awc-option>
+			<awc-option value="shenzhen" key="shenzhen-sz">SHENZHEN</awc-option>
+			<awc-option value="chongqing" key="chongqing-cq">CHONGQING</awc-option>
+		</awc-dropdown>
+		<h4>Css</h4>
+		<awc-dropdown class="awc-dropdown">
+			<awc-option value="1">Option1</awc-option>
+			<awc-option value="2">Option2</awc-option>
+			<awc-option value="3">Option3</awc-option>
+		</awc-dropdown>
+		<h4>Event</h4>
+		<awc-dropdown onchange="onChange(event)" onfocus="onFocus(event)">
+			<awc-option value="1">Option1</awc-option>
+			<awc-option value="2">Option2</awc-option>
+			<awc-option value="3">Option3</awc-option>
+		</awc-dropdown>
+		<h4>Function Focus</h4>
+		<awc-dropdown onfocus="onFocus(event)" onblur="onBlur(event)" onchange="onChange(event)">
+			<awc-option value="1">Option1</awc-option>
+			<awc-option value="2">Option2</awc-option>
+			<awc-option value="3">Option3</awc-option>
+		</awc-dropdown>
+		<awc-button type="primary" onclick="this.previousElementSibling.focus()">Set Focus</awc-button>
+		<h4>Function Reset</h4>
+		<awc-dropdown defaultvalue="2">
+			<awc-option value="1">Option1</awc-option>
+			<awc-option value="2">Option2</awc-option>
+			<awc-option value="3">Option3</awc-option>
+		</awc-dropdown>
+		<awc-button type="primary" onclick="this.previousElementSibling.reset()">reset</awc-button>
+		<h4>Customize Option</h4>
+		<awc-dropdown>
+			<awc-option value="1">Option1</awc-option>
+			<awc-option value="2">Option2</awc-option>
+			<awc-option value="3">Option3</awc-option>
+			<a class="awc-link" href="#">link</a>
+		</awc-dropdown>
+	</div>
+	<div class="content" id="message">
+		<h3>MESSAGE</h3>
+		<h4>message type</h4>
+		<awc-button type="primary" onclick="AwcMessage.info('This a info message', 10000)">info</awc-button>
+		<awc-button onclick="AwcMessage.success('This a success message')">success</awc-button>
+		<awc-button type="primary" onclick="AwcMessage.error('This a error message')">error</awc-button>
+		<awc-button onclick="AwcMessage.warning('This a warning message')">warning</awc-button>
+		<awc-button type="primary" onclick="AwcMessage.loading('This a loading message')">loading</awc-button>
+		<h4>show/hide loading</h4>
+		<awc-button onclick="this.loader = AwcMessage.loading('This a loading message')">show loading</awc-button>
+		<awc-button type="primary" onclick="onHideLoading(this)">hide loading</awc-button>
+		<h4>icon</h4>
+		<awc-button type="primary" onclick="AwcMessage.show({text:'Hello', duration: 0})">No Icon</awc-button>
+		<awc-button type="primary" onclick="AwcMessage.show({icon:'user', text:'Hello'})">Hello</awc-button>
+	</div>
+	<div class="content" id="dialog">
+		<h3>DIALOG</h3>
+		<h4>type</h4>
+		<awc-button type="primary" onclick="AwcDialog.alert('alert')">alert</awc-button>
+		<awc-button type="primary" onclick="AwcDialog.info('info')">info</awc-button>
+		<awc-button type="primary" onclick="AwcDialog.success({title:'success',content:'success',oktext:'Submit'})">
+			success
+		</awc-button>
+		<awc-button type="primary" onclick="AwcDialog.error('error')">error</awc-button>
+		<awc-button type="primary" onclick="AwcDialog.warning('warning')">warning</awc-button>
+		<h4>alert</h4>
+		<awc-button type="primary" onclick="AwcDialog.alert('alert- content', () => {console.log('click ok')})">alert
+		</awc-button>
+		<awc-button type="primary" onclick="AwcDialog.alert({
+			title: 'title',
+			oktext: 'ok',
+			content: 'content',
+			ok: () => {
+				console.log('click ok');
+			},
+		})">alert</awc-button>
+		<h4>confirm</h4>
+		<awc-button type="primary"
+			onclick="AwcDialog.confirm('confirm- content', () => {console.log('click ok')}, () => {console.log('click cancel')})">
+			confirm</awc-button>
+		<awc-button type="primary" onclick="AwcDialog.confirm({
+			title: 'title',
+			oktext:'ok',
+    		canceltext:'cancel',
+			content: 'content',
+			type:'error',
+			ok: () => {
+				console.log('click ok');
+			},
+			cancel: () => {
+				console.log('click cancel');
+    		},
+		})">confirm</awc-button>
+		<h4>Open dialog</h4>
+		<awc-dialog id="dialog" title="Title" oktext="OK">
+			<awc-tabs>
+				<awc-tab label="tab1">tab1</awc-tab>
+				<awc-tab label="tab2">tab2</awc-tab>
+				<awc-tab label="tab3">tab3</awc-tab>
+			</awc-tabs>
+		</awc-dialog>
+		<awc-button type="primary" onclick="document.getElementById('dialog').open = true;">open dialog</awc-button>
+	</div>
+	<div class="content" id="checkbox">
+		<h3>CHECKBOX</h3>
+		<h4>common use</h4>
+		<awc-checkbox>checkbox</awc-checkbox>
+		<h4>Disabled</h4>
+		<awc-checkbox disabled>checkbox</awc-checkbox>
+		<awc-switch checked onchange="this.previousElementSibling.disabled = this.checked;"></awc-switch>
+		<h4>Value</h4>
+		<awc-checkbox value="checkbox">checkbox</awc-checkbox>
+		<awc-button type="primary" onclick="AwcMessage.info(this.previousElementSibling.value)">get value</awc-button>
+		<h4>Checked</h4>
+		<awc-checkbox checked>checkbox</awc-checkbox>
+		<awc-switch checked onchange="this.previousElementSibling.checked = this.checked;"></awc-switch>
+		<h4>Group checked</h4>
+		<awc-checkbox name="lang" checked>Html</awc-checkbox>
+		<awc-checkbox name="lang">Css</awc-checkbox>
+		<awc-checkbox name="lang">Javascript</awc-checkbox>
+		<awc-checkbox name="lang">Python</awc-checkbox>
+		<awc-checkbox name="lang">Php</awc-checkbox>
+		<awc-checkbox name="lang">Dart</awc-checkbox>
+		<awc-checkbox name="lang">Swift</awc-checkbox>
+		<awc-button
+			onclick="AwcMessage.info(Array.from(document.querySelectorAll('awc-checkbox[name=lang][checked]')).map(el=>el.textContent))">
+			get checked value</awc-button>
+		<h4>indeterminate</h4>
+		<awc-checkbox>indeterminate</awc-checkbox>
+		<awc-button type="primary" onclick="this.previousElementSibling.indeterminate='true'">set indeterminate
+		</awc-button>
+		<h4>Event</h4>
+		<awc-checkbox onchange="AwcMessage.info('change:'+this.checked)"
+			onfocus="AwcMessage.info('focus:'+this.checked)" onblur="AwcMessage.info('blur:'+this.checked)">checkbox
+		</awc-checkbox>
+		<h4>Function</h4>
+		<awc-checkbox onfocus="AwcMessage.info('focus')" onchange="AwcMessage.info('checked:'+this.checked)">checkbox
+		</awc-checkbox>
+		<awc-button type="primary" onclick="this.previousElementSibling.focus()">Focus</awc-button>
+
+	</div>
+	<div class="content" id="form">
+		<h3>FORM</h3>
+		<h4>form</h4>
+		<awc-form action="/login" method="post">
+			<awc-form-item legend="user">
+				<awc-input name="user" required placeholder="user"></awc-input>
+			</awc-form-item>
+			<awc-form-item>
+				<awc-button type="primary" htmltype="submit">submit</awc-button>
+				<awc-button htmltype="reset">reset</awc-button>
+			</awc-form-item>
+		</awc-form>
+		<h4>form-item</h4>
+		<awc-form>
+			<awc-form-item legend="user">
+				<awc-input name="user" placeholder="user"></awc-input>
+			</awc-form-item>
+			<awc-form-item legend="password">
+				<awc-input name="password" required type="password" placeholder="password"></awc-input>
+			</awc-form-item>
+		</awc-form>
+		<h4>From type</h4>
+		<awc-radio-group onchange="this.nextElementSibling.type=this.value" defaultvalue="normal">
+			<awc-radio value="normal">normal</awc-radio>
+			<awc-radio value="full">full</awc-radio>
+			<awc-radio value="none">none</awc-radio>
+		</awc-radio-group>
+		<awc-form>
+			<awc-form-item legend="user">
+				<awc-input name="user" placeholder="user"></awc-input>
+			</awc-form-item>
+			<awc-form-item legend="password">
+				<awc-input name="password" required type="password" placeholder="password"></awc-input>
+			</awc-form-item>
+			<awc-form-item>
+				<awc-button type="primary" htmltype="submit">login</awc-button>
+				<awc-button htmltype="reset">reset</awc-button>
+			</awc-form-item>
+		</awc-form>
+		<h4>Props novalidate</h4>
+		<awc-form action="/login" method="post" novalidate>
+			<awc-form-item legend="user">
+				<awc-input name="user" placeholder="user"></awc-input>
+			</awc-form-item>
+			<awc-form-item legend="password">
+				<awc-input name="password" required type="password" placeholder="password"></awc-input>
+			</awc-form-item>
+		</awc-form>
+		<h4>Methods</h4>
+		<awc-form action="/login" method="post">
+			<awc-form-item legend="user">
+				<awc-input name="user" required placeholder="user"></awc-input>
+			</awc-form-item>
+			<awc-form-item legend="password">
+				<awc-input name="password" required type="password" placeholder="password" minlength="6"></awc-input>
+			</awc-form-item>
+			<awc-form-item>
+				<awc-button type="primary" htmltype="submit">login</awc-button>
+				<awc-button htmltype="reset">reset</awc-button>
+			</awc-form-item>
+		</awc-form>
+		<h4>Example</h4>
+		<awc-form action="/login" method="post" id="form-submit">
+			<awc-form-item legend="user">
+				<awc-input name="user" required placeholder="user"></awc-input>
+			</awc-form-item>
+			<awc-form-item legend="password">
+				<awc-input name="password" id="pwd" required type="password" placeholder="password" minlength="6">
+				</awc-input>
+			</awc-form-item>
+			<awc-form-item legend="password again">
+				<awc-input name="password_confirm" id="pwdAgain" required type="password"
+					placeholder="password confirm">
+				</awc-input>
+			</awc-form-item>
+			<awc-form-item legend="city">
+				<awc-dropdown name="city" required>
+					<awc-option value="wuhan">wuhan</awc-option>
+					<awc-option value="beijin">beijin</awc-option>
+					<awc-option value="shanghai">shanghai</awc-option>
+				</awc-dropdown>
+			</awc-form-item>
+			<awc-form-item legend="framework">
+				<awc-checkbox>React</awc-checkbox>
+				<awc-checkbox>Vue</awc-checkbox>
+				<awc-checkbox>Angular</awc-checkbox>
+				<awc-checkbox>Flutter</awc-checkbox>
+				<awc-checkbox>Swift</awc-checkbox>
+			</awc-form-item>
+			<awc-form-item legend="lang">
+				<awc-radio-group name="lan" required>
+					<awc-radio>Html</awc-radio>
+					<awc-radio>Css</awc-radio>
+					<awc-radio>Javascript</awc-radio>
+					<awc-radio>Php</awc-radio>
+					<awc-radio>Dart</awc-radio>
+				</awc-radio-group>
+			</awc-form-item>
+			<awc-form-item>
+				<awc-checkbox name="react" required value="react">recommend react</awc-checkbox>
+			</awc-form-item>
+			<awc-form-item>
+				<awc-button type="primary" htmltype="submit" onclick="onSubmit()">submit</awc-button>
+				<awc-button htmltype="reset">reset</awc-button>
+			</awc-form-item>
+		</awc-form>
+	</div>
+	<div class="content" id="image">
+		<h3>IMAGE</h3>
+		<h4>Src</h4>
+		<awc-img src="../../assets/image.jpg"></awc-img>
+		<h4>Default Src</h4>
+		<awc-img src="https://images.xxx.jpg" defaultsrc="../../assets/image.jpg"></awc-img>
+		<h4>Alt</h4>
+		<awc-img src="../../assets/image.jpg" alt="image"></awc-img>
+		<h4>Ratio</h4>
+		<awc-radio name="img-ratio" value="16/9" checked
+			onchange="document.getElementById('img-ratio').ratio = this.value">16/9</awc-radio>
+		<awc-radio name="img-ratio" value="3/2" onchange="document.getElementById('img-ratio').ratio = this.value">3/2
+		</awc-radio>
+		<awc-radio name="img-ratio" value="1/1" onchange="document.getElementById('img-ratio').ratio = this.value">1/1
+		</awc-radio>
+		<awc-img ratio="16/9" id="img-ratio" src="../../assets/image.jpg"></awc-img>
+		<h4>Fit</h4>
+		<awc-radio name="img-fit" value="cover" checked onchange="document.getElementById('img-fit').fit = this.value">
+			cover</awc-radio>
+		<awc-radio name="img-fit" value="fill" onchange="document.getElementById('img-fit').fit = this.value">fill
+		</awc-radio>
+		<awc-radio name="img-fit" value="contain" onchange="document.getElementById('img-fit').fit = this.value">contain
+		</awc-radio>
+		<awc-img fit="cover" id="img-fit" src="../../assets/image.jpg"></awc-img>
+		<h4>lazy loading</h4>
+		<awc-img lazy src="../../assets/image.jpg"></awc-img>
+	</div>
+	<div class="content" id="input">
+		<h3>INPUT</h3>
+		<h4>input</h4>
+		<awc-input defaultvalue="defaultvalue"></awc-input>
+		<h4>label</h4>
+		<awc-input label="label"></awc-input>
+		<h4>placeholder</h4>
+		<awc-input placeholder="placeholder"></awc-input>
+		<h4>icon</h4>
+		<awc-input icon="user"></awc-input>
+		<h4>Disabled</h4>
+		<awc-input label="user" disabled></awc-input>
+		<awc-switch checked onchange="this.previousElementSibling.disabled = this.checked;"></awc-switch>
+		<h4>Readonly</h4>
+		<awc-input label="user" readonly defaultvalue="Plortinus"></awc-input>
+		<awc-switch checked onchange="this.previousElementSibling.readonly = this.checked;"></awc-switch>
+		<h4>Value</h4>
+		<awc-input></awc-input>
+		<awc-button onclick="this.previousElementSibling.value='Plortinus'">set value is example</awc-button>
+		<h4>Type</h4>
+		<awc-input label="password" icon="lock" type="password"></awc-input>
+		<awc-input type="search" label="search" onsubmit="AwcMessage.info(this.value)"></awc-input>
+		<awc-input icon="creditcard" label="number" type="number" min="-10" max="10" step="0.5"></awc-input>
+		<h4>Built-in form validation</h4>
+		<awc-input icon="user" required placeholder="required"></awc-input>
+		<awc-input icon="user" placeholder="user" minlength="6" maxlength="10"></awc-input>
+		<awc-input icon="mail" type="email" placeholder="email"></awc-input>
+		<h4>pattern</h4>
+		<awc-input icon="phone" pattern="^1(3|4|5|6|7|8|9)\d{9}$" placeholder="Please enter phone number"
+			errortips="error" errordir="right"></awc-input>
+		<h4>Custom Valid</h4>
+		<awc-form action="/login" method="post">
+			<awc-form-item legend="password">
+				<awc-input name="password" id="password" required type="password" placeholder="password" minlength="6">
+				</awc-input>
+			</awc-form-item>
+			<awc-form-item legend="password again">
+				<awc-input name="password_confirm" id="password_confirm" required type="password"
+					placeholder="password confirm"></awc-input>
+			</awc-form-item>
+			<awc-form-item>
+				<awc-button type="primary" htmltype="submit">submit</awc-button>
+				<awc-button htmltype="reset">reset</awc-button>
+			</awc-form-item>
+		</awc-form>
+		<h4>no valid</h4>
+		<awc-input icon="user" novalidate placeholder="user" minlength="6" maxlength="10"></awc-input>
+		<h4>validity</h4>
+		<awc-input required placeholder="required"></awc-input>
+		<awc-button type="primary" onclick="AwcMessage.info('validity:'+this.previousElementSibling.validity)">validity
+		</awc-button>
+		<h4>Event</h4>
+		<awc-input onchange="AwcMessage.info(this.value)"></awc-input>
+		<awc-input debounce="300" oninput="AwcMessage.info(this.value)"></awc-input>
+		<awc-input onsubmit="AwcMessage.info(this.value)" placeholder="Press Enter"></awc-input>
+		<h4>Function</h4>
+		<awc-input onfocus="AwcMessage.info('focus')"></awc-input>
+		<awc-button type="primary" onclick="this.previousElementSibling.focus()">Focus</awc-button>
+		<h4>Valid</h4>
+		<awc-input required placeholder="required"></awc-input>
+		<awc-button type="primary" onclick="this.previousElementSibling.checkValidity()">Valid</awc-button>
+	</div>
+	<div class="content" id="textarea">
+		<h3>TEXTAREA</h3>
+		<h4>required</h4>
+		<awc-textarea required placeholder="required"></awc-textarea>
+		<h4>label</h4>
+		<awc-textarea label="info" placeholder="info"></awc-textarea>
+		<h4>placeholder</h4>
+		<awc-textarea label="info" placeholder="info"></awc-textarea>
+		<h4>icon</h4>
+		<awc-textarea icon="location" placeholder="location"></awc-textarea>
+		<h4>rows</h4>
+		<awc-textarea placeholder="rows" rows="5"></awc-textarea>
+	</div>
+	<div class="content" id="pagination">
+		<h3>PAGINATION</h3>
+		<h4>pagesize & total</h4>
+		<awc-pagination pagesize="3" total="50"></awc-pagination>
+		<awc-button onclick="this.previousElementSibling.pagesize=10">set pagesize is 10</awc-button>
+		<h4>default page</h4>
+		<awc-pagination defaultcurrent="7" pagesize="3" total="50"></awc-pagination>
+		<h4>Current page</h4>
+		<awc-pagination pagesize="3" total="50"></awc-pagination>
+		<awc-button type="primary" onclick="AwcMessage.info('value: '+this.previousElementSibling.current)">
+			show current page
+		</awc-button>
+		<h4>Simple</h4>
+		<awc-pagination simple pagesize="3" total="50"></awc-pagination>
+		<h4>custom size</h4>
+		<awc-pagination class="pagination" pagesize="3" total="50"></awc-pagination>
+		<h4>onChange</h4>
+		<awc-pagination onchange="AwcMessage.info('current page: '+this.current)" pagesize="3" total="50">
+		</awc-pagination>
+		<h4>Example</h4>
+		<div class="pagination-demo">
+			<awc-pagination id="pagination-demo" onchange="AwcMessage.info('current page: '+this.current)" pagesize="10"
+				total="200"></awc-pagination>
+			<awc-dropdown defaultvalue="10" onchange="onPageChange(event)">
+				<awc-option value="10">10</awc-option>
+				<awc-option value="15">15</awc-option>
+				<awc-option value="20">20</awc-option>
+			</awc-dropdown>
+			<span>jump</span>
+			<awc-input type="number" defaultvalue="1" min="1"
+				onchange="document.getElementById('pagination-demo').current = this.value"></awc-input><span>page</span>
+		</div>
+	</div>
+	<div class="content" id="radio">
+		<h3>RADIO</h3>
+		<h4>Disabled</h4>
+		<awc-radio disabled>radio</awc-radio>
+		<awc-switch checked onchange="this.previousElementSibling.disabled = this.checked;"></awc-switch>
+		<h4>Value</h4>
+		<awc-radio value="AAA">radio</awc-radio>
+		<awc-button type="primary" onclick="AwcMessage.info(this.previousElementSibling.value)">get value</awc-button>
+		<h4>Checked</h4>
+		<awc-radio>radio</awc-radio>
+		<awc-button type="primary" onclick="this.previousElementSibling.checked = true;">Checked</awc-button>
+		<h4>Multi</h4>
+		<awc-radio name="lib" checked>React</awc-radio>
+		<awc-radio name="lib">Vue</awc-radio>
+		<awc-radio name="lib">Angular</awc-radio>
+		<awc-radio name="lib">Other</awc-radio>
+		<awc-button type="primary"
+			onclick="AwcMessage.info(document.querySelector('awc-radio[name=lib][checked]').value)">get value
+		</awc-button>
+		<h4>Event</h4>
+		<awc-radio onchange="AwcMessage.info('checked:'+this.checked)">radio</awc-radio>
+		<h4>Function</h4>
+		<awc-radio onchange="AwcMessage.info('checked:'+this.checked)">radio</awc-radio>
+		<awc-button type="primary" onfocus="AwcMessage.info('focus')" onclick="this.previousElementSibling.focus()">主动聚焦
+		</awc-button>
+	</div>
+	<div class="content" id="rate">
+		<h3>RATE</h3>
+		<h3>default value</h3>
+		<awc-rate defaultvalue="2"></awc-rate>
+		<h4>value</h4>
+		<awc-rate defaultvalue="2"></awc-rate>
+		<awc-button type="primary" onclick="this.previousElementSibling.value=3">set value为3</awc-button>
+		<awc-button type="primary"
+			onclick="AwcMessage.info('value: '+this.previousElementSibling.previousElementSibling.value)">show value
+		</awc-button>
+		<h4>Disabled</h4>
+		<awc-rate disabled defaultvalue="2"></awc-rate>
+		<awc-switch checked onchange="this.previousElementSibling.disabled = this.checked;"></awc-switch>
+		<h4>Icon</h4>
+		<awc-rate defaultvalue="2" icon="star"></awc-rate>
+		<awc-rate defaultvalue="2" icon="like-fill"></awc-rate>
+		<awc-rate defaultvalue="2" icon="heart-fill"></awc-rate>
+		<h4>Size</h4>
+		<awc-rate defaultvalue="2" size="20"></awc-rate>
+		<awc-rate defaultvalue="2" size="25"></awc-rate>
+		<awc-rate defaultvalue="2" size="30"></awc-rate>
+		<awc-rate defaultvalue="2" size="35"></awc-rate>
+		<h4>Color</h4>
+		<awc-rate defaultvalue="2" color="orangered" class="rate-color"></awc-rate>
+		<awc-rate defaultvalue="2" color="#1E90FF"></awc-rate>
+		<awc-rate defaultvalue="2" color="#F44336"></awc-rate>
+		<awc-rate defaultvalue="2" color="#3F51B5"></awc-rate>
+		<h4>Tooltip</h4>
+		<awc-rate defaultvalue="1" tips="terrible,bad,normal,good,wonderful"></awc-rate>
+		<h4>Event</h4>
+		<awc-rate defaultvalue="1" onchange="AwcMessage.info('value: '+this.value)"></awc-rate>
+		<h4>Function</h4>
+		<awc-rate onfocus="AwcMessage.info('focus')" onblur="AwcMessage.info('blur')"
+			onchange="AwcMessage.info(this.value)"></awc-rate>
+		<awc-button type="primary" onclick="this.previousElementSibling.focus()">Focus</awc-button>
+	</div>
+	<div class="content" id="slide">
+		<h3>SLIDE</h3>
+		<h4>Default value</h4>
+		<awc-slider></awc-slider>
+		<awc-slider defaultvalue="30"></awc-slider>
+		<awc-slider defaultvalue="50"></awc-slider>
+		<h4>Disabled</h4>
+		<awc-slider defaultvalue="50" disabled></awc-slider>
+		<awc-switch checked onchange="this.previousElementSibling.disabled = this.checked;"></awc-switch>
+		<h4>Show tooltip</h4>
+		<awc-slider defaultvalue="50" showtips></awc-slider>
+		<h4>prefix & suffix</h4>
+		<awc-slider defaultvalue="30" showtips prefix="$"></awc-slider>
+		<awc-slider defaultvalue="50" showtips prefix="value:"></awc-slider>
+		<awc-slider defaultvalue="30" showtips suffix="%"></awc-slider>
+		<awc-slider defaultvalue="50" showtips suffix="km"></awc-slider>
+		<h4>Min & Max & Step</h4>
+		<awc-slider defaultvalue="50" min="0" max="100" step="10" id="awc-slider-step" showtips></awc-slider>
+		<awc-input style="width:100px" label="min" type="number" min="-100" max="100"
+			onchange="document.getElementById('awc-slider-step').min=this.value;" defaultvalue="0"></awc-input>
+		<awc-input style="width:100px" label="max" type="number" min="1" max="300"
+			onchange="document.getElementById('awc-slider-step').max=this.value;" defaultvalue="100"></awc-input>
+		<awc-input style="width:100px" label="step" type="number" min="1" max="50"
+			onchange="document.getElementById('awc-slider-step').step=this.value;" defaultvalue="10"></awc-input>
+		<h4>vertical</h4>
+		<awc-slider vertical showtips defaultvalue="50" style="width:50px;height:150px;"></awc-slider>
+		<h4>Value </h4>
+		<awc-slider showtips></awc-slider>
+		<awc-button type="primary" onclick="this.previousElementSibling.value=50">set value 50</awc-button>
+		<awc-button type="primary"
+			onclick="AwcMessage.info('value: '+this.previousElementSibling.previousElementSibling.value)">show value
+		</awc-button>
+		<h4>Event</h4>
+		<awc-slider onchange="AwcMessage.info('value: '+this.value)"></awc-slider>
+		<awc-slider oninput="AwcMessage.info('value: '+this.value)"></awc-slider>
+		<h4>Function</h4>
+		<awc-slider onfocus="AwcMessage.info('focus')" onchange="AwcMessage.info(this.value)"></awc-slider>
+		<awc-button type="primary" onclick="this.previousElementSibling.focus()">Focus</awc-button>
+	</div>
+	<div class="content" id="switch">
+		<h3>SWITCH</h3>
+		<h4>Disabled</h4>
+		<awc-switch disabled></awc-switch>
+		<awc-button type="primary" onclick="this.previousElementSibling.disabled=!this.previousElementSibling.disabled">
+			Change DIsabled</awc-button>
+		<h4>Checked</h4>
+		<awc-switch checked></awc-switch>
+		<awc-button type="primary" onclick="this.previousElementSibling.checked=!this.previousElementSibling.checked">
+			Change Check</awc-button>
+		<h4>CSS</h4>
+		<awc-switch checked></awc-switch>
+		<awc-slider min="10" max="50" defaultvalue="16" suffix="px" showtips
+			oninput="this.previousElementSibling.style.fontSize=this.value+'px'"></awc-slider>
+		<h4>Event</h4>
+		<awc-switch onchange="AwcMessage.info('checked:'+this.checked)"></awc-switch>
+		<h4>Function</h4>
+		<awc-switch onfocus="AwcMessage.info('focus')" onchange="AwcMessage.info('checked:'+this.checked)"></awc-switch>
+		<awc-button type="primary" onclick="this.previousElementSibling.focus()">Focus</awc-button>
+	</div>
+	<div class="content" id="tab">
+		<h3>TAB</h3>
+		<h4>Label</h4>
+		<awc-tabs>
+			<awc-tab label="tab1">tab1</awc-tab>
+			<awc-tab label="tab2">tab2</awc-tab>
+			<awc-tab label="tab3">tab3</awc-tab>
+		</awc-tabs>
+		<h4>Disabled</h4>
+		<awc-tabs>
+			<awc-tab label="tab1">tab1</awc-tab>
+			<awc-tab label="tab2" disabled>tab2</awc-tab>
+			<awc-tab label="tab3">tab3</awc-tab>
+		</awc-tabs>
+		<h4>Activekey</h4>
+		<awc-tabs activekey="B">
+			<awc-tab label="tab1" key="A">tab1</awc-tab>
+			<awc-tab label="tab2" key="B">tab2</awc-tab>
+			<awc-tab label="tab3" key="C">tab3</awc-tab>
+		</awc-tabs>
+		<awc-button type="primary" onclick="this.previousElementSibling.activekey='C'">change tab3</awc-button>
+		<h4>Icon</h4>
+		<awc-tabs>
+			<awc-tab icon="home">tab1</awc-tab>
+			<awc-tab icon="message">tab2</awc-tab>
+			<awc-tab icon="user">tab3</awc-tab>
+		</awc-tabs>
+		<h4>Type</h4>
+		<awc-radio value="text" checked name="tab" onchange="onChangeTabType(this.value)">text</awc-radio>
+		<awc-radio value="card" name="tab" onchange="onChangeTabType(this.value)">card</awc-radio>
+		<awc-radio value="line" name="tab" onchange="onChangeTabType(this.value)">line</awc-radio>
+		<awc-tabs type="text" style="padding:.8em;" id="tabs">
+			<awc-tab label="home" icon="home">tab1</awc-tab>
+			<awc-tab label="message" icon="message">tab2</awc-tab>
+			<awc-tab label="user" icon="user">tab3</awc-tab>
+		</awc-tabs>
+		<h4>Align</h4>
+		<awc-radio value="start" checked name="tabAlign" onchange="onChangeTabAlign(this.value)">start</awc-radio>
+		<awc-radio value="center" name="tabAlign" onchange="onChangeTabAlign(this.value)">center</awc-radio>
+		<awc-radio value="end" name="tabAlign" onchange="onChangeTabAlign(this.value)">end</awc-radio>
+		<awc-tabs type="card" id="tab-align" style="padding:.8em; background:#f1f1f1">
+			<awc-tab label="home" icon="home">tab1</awc-tab>
+			<awc-tab label="message" icon="message">tab2</awc-tab>
+			<awc-tab label="user" icon="user">tab3</awc-tab>
+		</awc-tabs>
+		<h4>Event</h4>
+		<awc-tabs onchange="AwcMessage.info(event.detail.label)">
+			<awc-tab label="tab1">tab1</awc-tab>
+			<awc-tab label="tab2">tab2</awc-tab>
+			<awc-tab label="tab3">tab3</awc-tab>
+		</awc-tabs>
+		<h4>Scroll</h4>
+		<awc-tabs>
+			<awc-tab label="tab11111111111111">tab1</awc-tab>
+			<awc-tab label="tab2222222222222">tab2</awc-tab>
+			<awc-tab label="tab333333333">tab3</awc-tab>
+			<awc-tab label="tab4">tab4</awc-tab>
+			<awc-tab label="tab5">tab5</awc-tab>
+			<awc-tab label="tab64444444444">tab6</awc-tab>
+			<awc-tab label="tab7">tab7</awc-tab>
+			<awc-tab label="tab855555555">tab8</awc-tab>
+			<awc-tab label="tab9">tab9</awc-tab>
+			<awc-tab label="tab106666666666">tab10</awc-tab>
+			<awc-tab label="tab11">tab11</awc-tab>
+			<awc-tab label="tab126666666666">tab12</awc-tab>
+			<awc-tab label="tab13">tab13</awc-tab>
+			<awc-tab label="tab146666666666">tab14</awc-tab>
+		</awc-tabs>
+		<h4>nested</h4>
+		<awc-tabs>
+			<awc-tab label="tab1">
+				<awc-tabs>
+					<awc-tab label="1-tab1">1-tab1</awc-tab>
+					<awc-tab label="1-tab2">1-tab2</awc-tab>
+					<awc-tab label="1-tab3">1-tab3</awc-tab>
+				</awc-tabs>
+			</awc-tab>
+			<awc-tab label="tab2">tab2</awc-tab>
+			<awc-tab label="tab3">tab3</awc-tab>
+		</awc-tabs>
+	</div>
+</body>
+<script type="text/javascript">
+	function onClick(event) {
+		console.log(event);
+	}
+	function onFocus(event) {
+		console.log(event);
+	}
+
+	function onBlur(event) {
+		console.log(event);
+	}
+
+	function onCancel(event) {
+		console.log(event);
+	}
+
+	function onSubmit(event) {
+		console.log(event);
+	}
+
+	function onChange(event) {
+		console.log(event);
+	}
+
+	function onHideLoading(event) {
+		if (event.previousElementSibling.loader) {
+			event.previousElementSibling.loader.show = false;
+			event.previousElementSibling.loader.onclose = () => {
+				console.log('closed');
+			}
+		}
+	}
+
+	function onPageChange(event) {
+		const pageLe = document.getElementById('pagination-demo');
+		pageLe.pagesize = event.detail.value;
+	}
+
+	function onChangeTabType(type) {
+		const tabsEl = document.getElementById('tabs');
+		tabsEl.type = type;
+	}
+
+	function onChangeTabAlign(align) {
+		const tabsEl = document.getElementById('tab-align');
+		tabsEl.align = align;
+	}
+
+	document.getElementById('password_confirm').customValidity = {
+		method: (el) => {
+			return el.value == document.getElementById('password').value
+		},
+		tips: 'Error',
+	}
+</script>
+
+</html>

@@ -1,0 +1,20 @@
+:root {
+    --themeColor: #42b983;
+    --borderColor: rgba(0, 0, 0, .2);
+    --fontColor: #333333;
+    --borderRadius: 0.25em;
+    --paddingLeft: .625em;
+    --boxShadow: rgba(0, 0, 0, 0.15);
+    --waringColor: #faad14;
+    --grayColor: rgba(0, 0, 0, 0.75);
+    --successColor: #52c41a;
+    --errorColor: #f4615c;
+    --waringColor: #faad14;
+    --infoColor: #1890ff;
+    --successColor: #52c41a;
+    --errorColor: #f4615c;
+    --waringColor: #faad14;
+    --shadowBackground: rgba(0, 0, 0, 0.3);
+    --themeBackground:linear-gradient(-180deg,#2fcb53,#269f42 90%);
+    --height: 300px;
+}

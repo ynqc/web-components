@@ -1,0 +1,61 @@
+<style>
+    :host {
+        display: flex;
+        font-size: 14px;
+    }
+
+    awc-button {
+        margin: 0 .3em;
+        width: 2.3em;
+        height: 2.3em;
+        padding: 1px;
+        font-size: inherit;
+        box-sizing: content-box;
+    }
+
+    .simple-page {
+        width: auto;
+        padding: 0 .625em;
+    }
+
+    awc-button[tabindex] {
+        justify-content: center;
+        align-items: center;
+        pointer-events: none;
+    }
+
+    .page-ellipsis awc-icon {
+        margin: auto;
+    }
+
+    awc-button[current] {
+        background: var(--themeBackground, var(--themeColor, #42b983));
+        border-color: var(--themeColor, #42b983);
+        color: #fff;
+    }
+
+    .page {
+        display: inline-flex;
+    }
+
+    .icon {
+        width: 1em;
+        height: 1em;
+        fill: currentColor;
+    }
+</style>
+<awc-button type="text" id="left">
+    <svg class="icon" viewBox="0 0 1024 1024">
+        <path
+            d="M724 218.3V141c0-6.7-7.7-10.4-12.9-6.3L260.3 486.8c-16.4 12.8-16.4 37.5 0 50.3l450.8 352.1c5.3 4.1 12.9 0.4 12.9-6.3v-77.3c0-4.9-2.3-9.6-6.1-12.6l-360-281 360-281.1c3.8-3 6.1-7.7 6.1-12.6z">
+        </path>
+    </svg>
+</awc-button>
+<div class="page" id="page"></div>
+<awc-button type="text" id="right">
+    <svg class="icon" viewBox="0 0 1024 1024">
+        <path
+            d="M765.7 486.8L314.9 134.7c-5.3-4.1-12.9-0.4-12.9 6.3v77.3c0 4.9 2.3 9.6 6.1 12.6l360 281.1-360 281.1c-3.9 3-6.1 7.7-6.1 12.6V883c0 6.7 7.7 10.4 12.9 6.3l450.8-352.1c16.4-12.8 16.4-37.6 0-50.4z">
+        </path>
+    </svg>
+</awc-button>

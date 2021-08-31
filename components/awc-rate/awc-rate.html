@@ -1,0 +1,75 @@
+<style>
+    :host {
+        display: inline-flex;
+        font-size: 20px;
+        direction: rtl;
+        color: #eee;
+    }
+
+    label {
+        cursor: pointer;
+        display: block;
+        line-height: 0;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    input[type="radio"] {
+        position: absolute;
+        clip: rect(0, 0, 0, 0)
+    }
+
+    input[type="radio"]:checked~.star-item {
+        color: var(--themeColor, #42b983);
+    }
+
+    .star-item:hover awc-icon {
+        transform: scale(1.2)
+    }
+
+    :host(:not([disabled]):hover) awc-tooltip.star-item {
+        color: inherit;
+    }
+
+    :host(:not([disabled])) awc-tooltip.star-item:hover,
+    :host(:not([disabled])) awc-tooltip.star-item:hover~.star-item {
+        color: var(--themeColor, #42b983);
+    }
+
+    :host([disabled]) input[type="radio"] {
+        visibility: hidden;
+    }
+
+    :host([disabled]) label {
+        pointer-events: none;
+    }
+</style>
+<input tabindex="5" type="radio" name="item" id="item05" value="5" />
+<awc-tooltip class="star-item">
+    <label for="item05">
+        <awc-icon></awc-icon>
+    </label>
+</awc-tooltip>
+<input tabindex="4" type="radio" name="item" id="item04" value="4" />
+<awc-tooltip class="star-item">
+    <label for="item04">
+        <awc-icon></awc-icon>
+    </label>
+</awc-tooltip>
+<input tabindex="3" type="radio" name="item" id="item03" value="3" />
+<awc-tooltip class="star-item">
+    <label for="item03">
+        <awc-icon></awc-icon>
+    </label>
+</awc-tooltip>
+<input tabindex="2" type="radio" name="item" id="item02" value="2" />
+<awc-tooltip class="star-item">
+    <label for="item02">
+        <awc-icon></awc-icon>
+    </label>
+</awc-tooltip>
+<input tabindex="1" type="radio" name="item" id="item01" value="1" />
+<awc-tooltip class="star-item">
+    <label for="item01">
+        <awc-icon></awc-icon>
+    </label>
+</awc-tooltip>

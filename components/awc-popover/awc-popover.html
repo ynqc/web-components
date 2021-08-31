@@ -1,0 +1,193 @@
+<style>
+    :host {
+        display: inline-block;
+        position: relative;
+        overflow: visible;
+    }
+
+    :host([dir="top"]) ::slotted(awc-popbody) {
+        bottom: 100%;
+        left: 50%;
+        transform: translate(-50%, -10px) scale(0);
+        transform-origin: center bottom;
+    }
+
+    :host([dir="top"]) ::slotted(awc-popbody[open]),
+    :host([dir="top"][trigger="hover"]:not([disabled]):hover) ::slotted(awc-popbody),
+    :host([dir="top"][trigger="focus"]:not([disabled]):focus-within) ::slotted(awc-popbody) {
+        transform: translate(-50%, -10px) scale(1);
+    }
+
+    :host([dir="right"]) ::slotted(awc-popbody) {
+        left: 100%;
+        top: 50%;
+        transform: translate(10px, -50%) scale(0);
+        transform-origin: left;
+    }
+
+    :host([dir="right"]) ::slotted(awc-popbody[open]),
+    :host([dir="right"][trigger="hover"]:not([disabled]):hover) ::slotted(awc-popbody),
+    :host([dir="right"][trigger="focus"]:not([disabled]):focus-within) ::slotted(awc-popbody) {
+        transform: translate(10px, -50%) scale(1);
+    }
+
+    :host([dir="bottom"]) ::slotted(awc-popbody) {
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, 10px) scale(0);
+        transform-origin: center top;
+    }
+
+    :host([dir="bottom"]) ::slotted(awc-popbody[open]),
+    :host([dir="bottom"][trigger="hover"]:not([disabled]):hover) ::slotted(awc-popbody),
+    :host([dir="bottom"][trigger="focus"]:not([disabled]):focus-within) ::slotted(awc-popbody) {
+        transform: translate(-50%, 10px) scale(1);
+    }
+
+    :host([dir="left"]) ::slotted(awc-popbody) {
+        right: 100%;
+        top: 50%;
+        transform: translate(-10px, -50%) scale(0);
+        transform-origin: right;
+    }
+
+    :host([dir="left"]) ::slotted(awc-popbody[open]),
+    :host([dir="left"][trigger="hover"]:not([disabled]):hover) ::slotted(awc-popbody),
+    :host([dir="left"][trigger="focus"]:not([disabled]):focus-within) ::slotted(awc-popbody) {
+        transform: translate(-10px, -50%) scale(1);
+    }
+
+    :host([dir="lefttop"]) ::slotted(awc-popbody) {
+        right: 100%;
+        top: 0;
+        transform: translate(-10px) scale(0);
+        transform-origin: right top;
+    }
+
+    :host([dir="lefttop"]) ::slotted(awc-popbody[open]),
+    :host([dir="lefttop"][trigger="hover"]:not([disabled]):hover) ::slotted(awc-popbody),
+    :host([dir="lefttop"][trigger="focus"]:not([disabled]):focus-within) ::slotted(awc-popbody) {
+        transform: translate(-10px) scale(1);
+    }
+
+    :host([dir="leftbottom"]) ::slotted(awc-popbody) {
+        right: 100%;
+        bottom: 0;
+        transform: translate(-10px) scale(0);
+        transform-origin: right bottom;
+    }
+
+    :host([dir="leftbottom"]) ::slotted(awc-popbody[open]),
+    :host([dir="leftbottom"][trigger="hover"]:not([disabled]):hover) ::slotted(awc-popbody),
+    :host([dir="leftbottom"][trigger="focus"]:not([disabled]):focus-within) ::slotted(awc-popbody) {
+        transform: translate(-10px) scale(1);
+    }
+
+    :host([dir="topleft"]) ::slotted(awc-popbody) {
+        bottom: 100%;
+        left: 0;
+        transform: translate(0, -10px) scale(0);
+        transform-origin: left bottom;
+    }
+
+    :host([dir="topleft"]) ::slotted(awc-popbody[open]),
+    :host([dir="topleft"][trigger="hover"]:not([disabled]):hover) ::slotted(awc-popbody),
+    :host([dir="topleft"][trigger="focus"]:not([disabled]):focus-within) ::slotted(awc-popbody) {
+        transform: translate(0, -10px) scale(1);
+    }
+
+    :host([dir="topright"]) ::slotted(awc-popbody) {
+        bottom: 100%;
+        right: 0;
+        transform: translate(0, -10px) scale(0);
+        transform-origin: right bottom;
+    }
+
+    :host([dir="topright"]) ::slotted(awc-popbody[open]),
+    :host([dir="topright"][trigger="hover"]:not([disabled]):hover) ::slotted(awc-popbody),
+    :host([dir="topright"][trigger="focus"]:not([disabled]):focus-within) ::slotted(awc-popbody) {
+        transform: translate(0, -10px) scale(1);
+    }
+
+    :host([dir="righttop"]) ::slotted(awc-popbody) {
+        left: 100%;
+        top: 0;
+        transform: translate(10px) scale(0);
+        transform-origin: left top;
+    }
+
+    :host([dir="righttop"]) ::slotted(awc-popbody[open]),
+    :host([dir="righttop"][trigger="hover"]:not([disabled]):hover) ::slotted(awc-popbody),
+    :host([dir="righttop"][trigger="focus"]:not([disabled]):focus-within) ::slotted(awc-popbody) {
+        transform: translate(10px) scale(1);
+    }
+
+    :host([dir="rightbottom"]) ::slotted(awc-popbody) {
+        left: 100%;
+        bottom: 0;
+        transform: translate(10px) scale(0);
+        transform-origin: left bottom;
+    }
+
+    :host([dir="rightbottom"]) ::slotted(awc-popbody[open]),
+    :host([dir="rightbottom"][trigger="hover"]:not([disabled]):hover) ::slotted(awc-popbody),
+    :host([dir="rightbottom"][trigger="focus"]:not([disabled]):focus-within) ::slotted(awc-popbody) {
+        transform: translate(10px) scale(1);
+    }
+
+    :host([dir="bottomleft"]) ::slotted(awc-popbody),
+    :host(:not([dir])) ::slotted(awc-popbody) {
+        left: 0;
+        top: 100%;
+        transform: translate(0, 10px) scale(0);
+        transform-origin: left top;
+    }
+
+    :host(:not([dir])) ::slotted(awc-popbody[open]),
+    :host(:not([dir])[trigger="hover"]:not([disabled]):hover) ::slotted(awc-popbody),
+    :host(:not([dir])[trigger="focus"]:not([disabled]):focus-within) ::slotted(awc-popbody),
+    :host([dir="bottomleft"]) ::slotted(awc-popbody[open]),
+    :host([dir="bottomleft"][trigger="hover"]:not([disabled]):hover) ::slotted(awc-popbody),
+    :host([dir="bottomleft"][trigger="focus"]:not([disabled]):focus-within) ::slotted(awc-popbody) {
+        transform: translate(0, 10px) scale(1);
+    }
+
+    :host([dir="bottomright"]) ::slotted(awc-popbody) {
+        right: 0;
+        top: 100%;
+        transform: translate(0, 10px) scale(0);
+        transform-origin: right top;
+    }
+
+    :host([dir="bottomright"]) ::slotted(awc-popbody[open]),
+    :host([dir="bottomright"][trigger="hover"]:not([disabled]):hover) ::slotted(awc-popbody),
+    :host([dir="bottomright"][trigger="focus"]:not([disabled]):focus-within) ::slotted(awc-popbody) {
+        transform: translate(0, 10px) scale(1);
+    }
+
+    :host([trigger="contextmenu"]) ::slotted(awc-popbody) {
+        right: auto;
+        bottom: auto;
+        left: var(--x, 0);
+        top: var(--y, 100%);
+        transform-origin: left top;
+        transform: translate(5px, 5px) scale(0);
+        transition: .15s;
+    }
+
+    :host([trigger="contextmenu"]) ::slotted(awc-popbody[open]) {
+        transform: translate(5px, 5px) scale(1);
+    }
+
+    :host ::slotted(awc-popbody[open]),
+    :host([trigger="hover"]:not([disabled]):hover) ::slotted(awc-popbody),
+    :host([trigger="focus"]:not([disabled]):focus-within) ::slotted(awc-popbody) {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    slot {
+        border-radius: inherit;
+    }
+</style>
+<slot></slot>

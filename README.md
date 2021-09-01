@@ -5,16 +5,16 @@
 - npm
 
 ```shell
-npm install web-components-js
+npm install @ynqc/web-components-js
 ```
 
 ## Usage
 ```html
 // import
-import "web-components-js";
+import "@ynqc/web-components-js";
 
 // Script
-<script defer="defer" src="web-components-js/index.js">
+<script defer="defer" src="@ynqc/web-components-js/index.js">
 ```
 - Note - If you want to use the icon function, please put the svg in the assets directory, or copy the assets directory under node_modules/web-component-js to your project.
 - Note -  Now a single component is not released, only all of them import together.

@@ -1,3 +1,5 @@
+"use strict";
+
 import html from './awc-checkbox.html';
 
 export default class AwcCheckbox extends HTMLElement {
@@ -50,8 +52,16 @@ export default class AwcCheckbox extends HTMLElement {
 		return this.getAttribute('value') || this.textContent;
 	}
 
+	set value(value) {
+		this.setAttribute("value", value);
+	}
+
 	get name() {
 		return this.getAttribute('name');
+	}
+
+	set name(value) {
+		this.setAttribute("name", value);
 	}
 
 	focus() {

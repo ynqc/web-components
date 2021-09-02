@@ -1,3 +1,5 @@
+"use strict";
+
 import '../awc-button/awc-button.js'
 import html from './awc-pagination.html';
 
@@ -12,6 +14,14 @@ export default class AwcPagination extends HTMLElement {
 	}
 
 	get defaultcurrent() {
+		return this.getAttribute('defaultcurrent') || 1;
+	}
+
+	set defaultcurrent(value) {
+		this.setAttribute('defaultcurrent', value);
+	}
+
+	get defaultvalue() {
 		return this.getAttribute('defaultcurrent') || 1;
 	}
 
@@ -60,6 +70,10 @@ export default class AwcPagination extends HTMLElement {
 
 	get simple() {
 		return this.getAttribute('simple') !== null;
+	}
+
+	set simple(value) {
+		this.setAttribute('simple', value);
 	}
 
 	attributeChangedCallback(name, oldValue, newValue) {

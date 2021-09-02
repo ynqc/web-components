@@ -1,3 +1,5 @@
+"use strict";
+
 import '../awc-tooltip/awc-tooltip.js'
 import '../awc-icon/awc-icon';
 import html from './awc-rate.html';
@@ -70,8 +72,16 @@ export default class AwcRate extends HTMLElement {
 		return this.getAttribute('defaultvalue') || 0;
 	}
 
+	set defaultvalue(value) {
+		this.setAttribute('defaultvalue', value);
+	}
+
 	get icon() {
 		return this.getAttribute('icon');
+	}
+
+	set icon(value) {
+		this.setAttribute('icon', value);
 	}
 	
 	focus() {

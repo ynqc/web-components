@@ -1,3 +1,5 @@
+"use strict";
+
 import html from './awc-tooltip.html';
 
 export default class AwcTooltip extends HTMLElement {

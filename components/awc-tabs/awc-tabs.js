@@ -1,3 +1,5 @@
+"use strict";
+
 import '../awc-button/awc-button';
 import './awc-tab';
 import html from './awc-tabs.html';
@@ -41,13 +43,13 @@ export default class AwcTabs extends HTMLElement {
 		if (name == 'activekey' && this.tabEl) {
 			let active = this.tabPos[newValue];
 			if (active === undefined) {
-				this.activekey = this.slotsEl.assignedElements()[0].key;
+				this.activekey = this.slotsEl.assignedElements()[0].value;
 				active = this.tabPos[this.activekey];
 			}
 			this.tablineEl.style = `width:${active.width}px;transform:translateX(${active.left}px)`;
 			this.tabEl.style.transform = `translateX(${-active.index * 100}%)`;
 			this.filterEl.textContent = `
-            ::slotted(awc-tab:not([key="${this.activekey}"])){
+            ::slotted(awc-tab:not([value="${this.activekey}"])){
                 height:0;
                 overflow:visible;
             }`;
@@ -88,20 +90,20 @@ export default class AwcTabs extends HTMLElement {
 			let html = '';
 			slots.forEach((item, index) => {
 				if (item.tagName === 'AWC-TAB') {
-					if (item.key === null) {
-						item.key = index;
+					if (item.value === null) {
+						item.value = index;
 					}
 					html += `<awc-button class="nav-item ${
-						item.key === this.activekey ? 'active' : ''
+						item.value === this.activekey ? 'active' : ''
 					}" icon=${item.icon} ${
 						item.disabled !== null ? 'disabled' : ''
-					} data-key=${item.key}>${item.label}</awc-button>`
+					} data-key=${item.value}>${item.label}</awc-button>`
 				}
 			});
 			this.navEl.innerHTML = html;
 			this._initTab();
 			if (this.activekey === null) {
-				this.activekey = slots[0].key;
+				this.activekey = slots[0].value;
 			} else {
 				this.activekey = this.activekey;
 			}

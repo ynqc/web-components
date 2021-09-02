@@ -1,3 +1,5 @@
+"use strict";
+
 import '../awc-tooltip/awc-tooltip.js'
 import '../awc-button/awc-button.js'
 import html from './awc-input.html';
@@ -141,51 +143,100 @@ export default class AwcInput extends HTMLElement {
 		return this.getAttribute('debounce');
 	}
 
+	set debounce(value) {
+		this.setAttribute('debounce', value);
+	}
+
 	get name() {
 		return this.getAttribute('name') || '';
 	}
 
-	get validity() {
-		return this.inputEl.checkValidity() && this.customValidity.method(this);
+	set name(value) {
+		this.setAttribute('name', value);
 	}
 
 	get errordir() {
 		return this.getAttribute('errordir') || 'top';
 	}
 
+	set errordir(value) {
+		this.setAttribute('errordir', value);
+	}
+
 	get defaultvalue() {
 		return this.getAttribute('defaultvalue') || '';
 	}
+
+	set defaultvalue(value) {
+		this.setAttribute('defaultvalue', value);
+	}
+
 	get rows() {
 		return this.getAttribute('rows') || 3;
+	}
+
+	set rows(value) {
+		this.setAttribute('rows', value);
 	}
 
 	get type() {
 		return this.getAttribute('type');
 	}
 
+	set type(value) {
+		this.setAttribute('type', value);
+	}
+
 	get min() {
 		return this.getAttribute('min') || 0;
+	}
+
+	set min(value) {
+		this.setAttribute('min', value);
 	}
 
 	get max() {
 		return this.getAttribute('max') || Infinity;
 	}
 
+	set max(value) {
+		this.setAttribute('max', value);
+	}
+
 	get minlength() {
 		return this.getAttribute('minlength') || '';
+	}
+
+	set minlength(value) {
+		this.setAttribute('minlength', value);
 	}
 
 	get maxlength() {
 		return this.getAttribute('maxlength') || '';
 	}
 
+	set maxlength(value) {
+		this.setAttribute('maxlength', value);
+	}
+
 	get step() {
 		return this.getAttribute('step') || 1;
 	}
 
+	set step(value) {
+		this.setAttribute('step', value);
+	}
+
 	get errortips() {
 		return this.getAttribute('errortips');
+	}
+
+	set errortips(value) {
+		this.setAttribute('errortips', value);
+	}
+
+	get validity() {
+		return this.inputEl.checkValidity() && this.customValidity.method(this);
 	}
 
 	checkValidity() {

@@ -1,3 +1,5 @@
+"use strict";
+
 import html from './awc-icon.html';
 
 export default class AwcIcon extends HTMLElement {

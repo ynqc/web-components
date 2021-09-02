@@ -1,3 +1,5 @@
+"use strict";
+
 import html from './awc-loading.html';
 
 export default class AwcLoading extends HTMLElement {

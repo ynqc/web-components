@@ -1,3 +1,5 @@
+"use strict";
+
 import '../awc-button/awc-button.js'
 import html from './awc-dialog.html';
 

@@ -41,19 +41,19 @@ Each `awc-tab` can specify the `disabled` attribute to disable the tab page.
 </awc-tabs>
 ```
 
-## Key `key`、`activekey`
+## Value `value` `activeKey`
 
-Each `awc-tab` needs to specify an identification `key`, if no serial number is used as the default `key`,
+Each `awc-tab` needs to specify an identification `value`, if no serial number is used as the default `value`,
 
-`activekey` works on `awc-tabs`, you can specify to switch to a specific tab page, or you can specify the initial value.
+`value` works on `awc-tabs`, you can specify to switch to a specific tab page, or you can specify the initial value.
 
 ```html
-<awc-tabs activekey="B">
-    <awc-tab label="tab1" key="A">tab1</awc-tab>
-    <awc-tab label="tab2" key="B">tab2</awc-tab>
-    <awc-tab label="tab3" key="C">tab3</awc-tab>
+<awc-tabs activeKey="B">
+    <awc-tab label="tab1" value="A">tab1</awc-tab>
+    <awc-tab label="tab2" value="B">tab2</awc-tab>
+    <awc-tab label="tab3" value="C">tab3</awc-tab>
 </awc-tabs>
-<awc-button type="primary" onclick="this.previousElementSibling.activekey='C'">change tab3</awc-button>
+<awc-button type="primary" onclick="this.previousElementSibling.value='C'">change tab3</awc-button>
 ```
 
 ## Icon `icon`

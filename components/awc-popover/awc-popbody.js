@@ -1,3 +1,5 @@
+"use strict";
+
 import '../awc-button/awc-button';
 import html from './awc-popbody.html';
 
@@ -8,7 +10,8 @@ export default class AwcPopBody extends HTMLElement {
 
     constructor(type) {
         super();
-        this._render(type);
+        this._type = type;
+        this._render();
     }
 
     get open() {
@@ -62,22 +65,51 @@ export default class AwcPopBody extends HTMLElement {
     }
 
     connectedCallback() {
-        this._remove = false
+        this._remove = false;
+        const popBodyEl = this.shadowRoot.getElementById("popbody-content");
+        if ((this._type || this.type) === 'confirm') {
+            // const iconEL = document.createElement('awc-icon');
+            // iconEL.setAttribute("id", "popbody-type");
+            // iconEL.classList.add("popbody-type");
+            // iconEL.name = "question-circle";
+            // iconEL.color = "var(--waringColor,#faad14)";
+            // this.shadowRoot.prepend(iconEL);
+            const footerEl = `<div class="popbody-footer">
+                <awc-button id="btn-cancel">${this.canceltext}</awc-button>
+                <awc-button id="btn-submit" type="primary">${this.oktext}</awc-button>
+            </div>`;
+            popBodyEl.innerHTML += footerEl;
+        }
+
+        if ((this._type || this.type) !== null) {
+            this.titleEl = document.createElement("div");
+            this.titleEl.setAttribute("id", "title");
+            this.titleEl.classList.add("popbody-title");
+            this.titleEl.innerHTML = this.title;
+
+            this.btnCloseEl = document.createElement("awc-icon");
+            this.btnCloseEl.setAttribute("id", "btn-close");
+            this.btnCloseEl.classList.add("btn-close");
+            this.btnCloseEl.path = "M563.8 512l262.5-312.9c4.4-5.2 0.7-13.1-6.1-13.1h-79.8c-4.7 0-9.2 2.1-12.3 5.7L511.6 449.8 295.1 191.7c-3-3.6-7.5-5.7-12.3-5.7H203c-6.8 0-10.5 7.9-6.1 13.1L459.4 512 196.9 824.9c-4.4 5.2-0.7 13.1 6.1 13.1h79.8c4.7 0 9.2-2.1 12.3-5.7l216.5-258.1 216.5 258.1c3 3.6 7.5 5.7 12.3 5.7h79.8c6.8 0 10.5-7.9 6.1-13.1L563.8 512z";
+            popBodyEl.prepend(this.btnCloseEl);
+            popBodyEl.prepend(this.titleEl);
+        }
+
         if (this.type) {
-            this.titles = this.shadowRoot.getElementById('title');
-            this.btnClose = this.shadowRoot.getElementById('btn-close');
+            this.titleEl = this.shadowRoot.getElementById('title');
+            this.btnCloseEl = this.shadowRoot.getElementById('btn-close');
         }
         if (this.type == 'confirm') {
-            this.btnCancel = this.shadowRoot.getElementById('btn-cancel');
-            this.btnSubmit = this.shadowRoot.getElementById('btn-submit');
+            this.btnCancelEl = this.shadowRoot.getElementById('btn-cancel');
+            this.btnSubmitEl = this.shadowRoot.getElementById('btn-submit');
         }
         this.addEventListener('transitionend', (ev) => {
             if (ev.propertyName === 'transform' && this.open) {
                 if (this.type == 'confirm') {
-                    this.btnSubmit.focus();
+                    this.btnSubmitEl.focus();
                 }
                 if (this.type == 'pane') {
-                    this.btnClose.focus();
+                    this.btnCloseEl.focus();
                 }
                 this.dispatchEvent(new CustomEvent('open'));
             }
@@ -97,18 +129,18 @@ export default class AwcPopBody extends HTMLElement {
             }
         })
         if (this.type) {
-            this.btnClose.addEventListener('click', () => {
+            this.btnCloseEl.addEventListener('click', () => {
                 this.open = false
                 window.xyActiveElement.focus();
             })
         }
         if (this.type == 'confirm') {
-            this.btnCancel.addEventListener('click', async () => {
+            this.btnCancelEl.addEventListener('click', async () => {
                 this.dispatchEvent(new CustomEvent('cancel'));
                 this.open = false;
                 window.xyActiveElement.focus();
             })
-            this.btnSubmit.addEventListener('click', () => {
+            this.btnSubmitEl.addEventListener('click', () => {
                 this.dispatchEvent(new CustomEvent('submit'));
                 this.open = false;
                 window.xyActiveElement.focus();
@@ -117,51 +149,26 @@ export default class AwcPopBody extends HTMLElement {
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
-        if (name == 'title' && this.titles) {
+        if (name == 'title' && this.titleEl) {
             if (newValue !== null) {
-                this.titles.innerHTML = newValue;
+                this.titleEl.innerHTML = newValue;
             }
         }
-        if (name == 'oktext' && this.btnSubmit) {
+        if (name == 'oktext' && this.btnSubmitEl) {
             if (newValue !== null) {
-                this.btnSubmit.innerHTML = newValue;
+                this.btnSubmitEl.innerHTML = newValue;
             }
         }
-        if (name == 'canceltext' && this.btnCancel) {
+        if (name == 'canceltext' && this.btnCancelEl) {
             if (newValue !== null) {
-                this.btnCancel.innerHTML = newValue;
+                this.btnCancelEl.innerHTML = newValue;
             }
         }
     }
 
-    _render(type) {
+    _render() {
         const shadowRoot = this.attachShadow({ mode: 'open' });
-        shadowRoot.innerHTML = `
-            ${html}
-            ${(type || this.type) === 'confirm'
-                ? '<awc-icon id="popbody-type" class="popbody-type" name="question-circle" color="var(--waringColor,#faad14)"></awc-icon>'
-                : ''
-            }
-            <div class="popbody-content">
-                ${(type || this.type) !== null
-                            ? '<div class="popbody-title" id="title">' +
-                            this.title +
-                            '</div><awc-button class="btn-close" id="btn-close" icon="close"></awc-button>'
-                            : ''
-                        }
-                <div class="popbody-body">
-                    <slot></slot>
-                </div>
-                ${(type || this.type) === 'confirm'
-                            ? '<div class="popbody-footer"><awc-button id="btn-cancel">' +
-                            this.canceltext +
-                            '</awc-button><awc-button id="btn-submit" type="primary">' +
-                            this.oktext +
-                            '</awc-button></div>'
-                            : ''
-                        }
-            </div>
-        `;
+        shadowRoot.innerHTML = html;
     }
 }
 

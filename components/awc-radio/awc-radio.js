@@ -1,3 +1,5 @@
+"use strict";
+
 import html from './awc-radio.html';
 
 export default class AwcRadio extends HTMLElement {
@@ -44,6 +46,10 @@ export default class AwcRadio extends HTMLElement {
 
 	get name() {
 		return this.getAttribute('name');
+	}
+
+	set name(value) {
+		this.setAttribute('name', value);
 	}
 
 	focus() {

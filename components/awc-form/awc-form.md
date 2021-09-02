@@ -41,11 +41,9 @@ default is normal -> `normal`、`full`、`none`
 * `none` No style, need to customize the layout
 
 ```html
-<awc-radio-group onchange="this.nextElementSibling.type=this.value" defaultvalue="normal">
-    <awc-radio value="normal">normal</awc-radio>
-    <awc-radio value="full">full</awc-radio>
-    <awc-radio value="none">none</awc-radio>
-</awc-radio-group>
+<awc-radio checked name="form-type" onchange="onChangeFormType(event)" value="normal">normal</awc-radio>
+<awc-radio name="form-type" onchange="onChangeFormType(event)" value="full">full</awc-radio>
+<awc-radio name="form-type" onchange="onChangeFormType(event)" value="none">none</awc-radio>
 <awc-form>
     <awc-form-item legend="user">
         <awc-input name="user" placeholder="user"></awc-input>
@@ -142,13 +140,11 @@ If this attribute is used, no validation will be performed when the form is subm
         <awc-checkbox>Swift</awc-checkbox>
     </awc-form-item>
     <awc-form-item legend="lang">
-        <awc-radio-group name="lan" required>
-            <awc-radio>Html</awc-radio>
-            <awc-radio>Css</awc-radio>
-            <awc-radio>Javascript</awc-radio>
-            <awc-radio>Php</awc-radio>
-            <awc-radio>Dart</awc-radio>
-        </awc-radio-group>
+        <awc-radio name="lang">Html</awc-radio>
+        <awc-radio name="lang">Css</awc-radio>
+        <awc-radio name="lang">Javascript</awc-radio>
+        <awc-radio name="lang">Php</awc-radio>
+        <awc-radio name="lang">Dart</awc-radio>
     </awc-form-item>
     <awc-form-item>
         <awc-checkbox name="react" required value="react">recommend react</awc-checkbox>

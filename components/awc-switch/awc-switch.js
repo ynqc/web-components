@@ -1,3 +1,5 @@
+"use strict";
+
 import html from './awc-switch.html';
 
 export default class AwcSwitch extends HTMLElement {
@@ -36,6 +38,10 @@ export default class AwcSwitch extends HTMLElement {
 
 	get name() {
 		return this.getAttribute('name');
+	}
+
+	set name(value) {
+		this.setAttribute("name", value);
 	}
 
 	focus() {

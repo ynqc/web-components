@@ -1,3 +1,5 @@
+"use strict";
+
 import './components/awc-button/awc-button';
 import './components/awc-slider/awc-slider';
 import './components/awc-dropdown/awc-dropdown';

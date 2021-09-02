@@ -117,7 +117,7 @@
 		<a href="#dialog" class="header-link">dialog</a>
 		<a href="#message" class="header-link">message</a>
 		<a href="#tooltip" class="header-link">tooltip</a>
-		
+
 		<a href="#dropdown" class="header-link">dropdown</a>
 		<a href="#input" class="header-link">input</a>
 		<a href="#textarea" class="header-link">textarea</a>
@@ -125,7 +125,7 @@
 		<a href="#radio" class="header-link">radio</a>
 		<a href="#switch" class="header-link">switch</a>
 		<a href="#form" class="header-link">form</a>
-		
+
 		<a href="#pagination" class="header-link">pagination</a>
 		<a href="#rate" class="header-link">rate</a>
 		<a href="#slide" class="header-link">slide</a>
@@ -643,14 +643,14 @@
     		},
 		})">confirm</awc-button>
 		<h4>Open dialog</h4>
-		<awc-dialog id="dialog" title="Title" oktext="OK">
+		<awc-dialog id="dialog-demo" title="Title" oktext="OK">
 			<awc-tabs>
 				<awc-tab label="tab1">tab1</awc-tab>
 				<awc-tab label="tab2">tab2</awc-tab>
 				<awc-tab label="tab3">tab3</awc-tab>
 			</awc-tabs>
 		</awc-dialog>
-		<awc-button type="primary" onclick="document.getElementById('dialog').open = true;">open dialog</awc-button>
+		<awc-button type="primary" onclick="document.getElementById('dialog-demo').open = true;">open dialog</awc-button>
 	</div>
 	<div class="content" id="checkbox">
 		<h3>CHECKBOX</h3>
@@ -712,12 +712,10 @@
 			</awc-form-item>
 		</awc-form>
 		<h4>From type</h4>
-		<awc-radio-group onchange="this.nextElementSibling.type=this.value" defaultvalue="normal">
-			<awc-radio value="normal">normal</awc-radio>
-			<awc-radio value="full">full</awc-radio>
-			<awc-radio value="none">none</awc-radio>
-		</awc-radio-group>
-		<awc-form>
+		<awc-radio checked name="form-type" onchange="onChangeFormType(event)" value="normal">normal</awc-radio>
+		<awc-radio name="form-type" onchange="onChangeFormType(event)" value="full">full</awc-radio>
+		<awc-radio name="form-type" onchange="onChangeFormType(event)" value="none">none</awc-radio>
+		<awc-form id="form-type">
 			<awc-form-item legend="user">
 				<awc-input name="user" placeholder="user"></awc-input>
 			</awc-form-item>
@@ -780,13 +778,11 @@
 				<awc-checkbox>Swift</awc-checkbox>
 			</awc-form-item>
 			<awc-form-item legend="lang">
-				<awc-radio-group name="lan" required>
-					<awc-radio>Html</awc-radio>
-					<awc-radio>Css</awc-radio>
-					<awc-radio>Javascript</awc-radio>
-					<awc-radio>Php</awc-radio>
-					<awc-radio>Dart</awc-radio>
-				</awc-radio-group>
+				<awc-radio name="lang">Html</awc-radio>
+				<awc-radio name="lang">Css</awc-radio>
+				<awc-radio name="lang">Javascript</awc-radio>
+				<awc-radio name="lang">Php</awc-radio>
+				<awc-radio name="lang">Dart</awc-radio>
 			</awc-form-item>
 			<awc-form-item>
 				<awc-checkbox name="react" required value="react">recommend react</awc-checkbox>
@@ -1061,19 +1057,19 @@
 			<awc-tab label="tab2">tab2</awc-tab>
 			<awc-tab label="tab3">tab3</awc-tab>
 		</awc-tabs>
+		<h4>Activekey</h4>
+		<awc-tabs activekey="B">
+			<awc-tab label="tab1" value="A">tab1</awc-tab>
+			<awc-tab label="tab2" value="B">tab2</awc-tab>
+			<awc-tab label="tab3" value="C">tab3</awc-tab>
+		</awc-tabs>
+		<awc-button type="primary" onclick="this.previousElementSibling.activekey='C'">change tab3</awc-button>
 		<h4>Disabled</h4>
 		<awc-tabs>
 			<awc-tab label="tab1">tab1</awc-tab>
 			<awc-tab label="tab2" disabled>tab2</awc-tab>
 			<awc-tab label="tab3">tab3</awc-tab>
 		</awc-tabs>
-		<h4>Activekey</h4>
-		<awc-tabs activekey="B">
-			<awc-tab label="tab1" key="A">tab1</awc-tab>
-			<awc-tab label="tab2" key="B">tab2</awc-tab>
-			<awc-tab label="tab3" key="C">tab3</awc-tab>
-		</awc-tabs>
-		<awc-button type="primary" onclick="this.previousElementSibling.activekey='C'">change tab3</awc-button>
 		<h4>Icon</h4>
 		<awc-tabs>
 			<awc-tab icon="home">tab1</awc-tab>
@@ -1181,6 +1177,11 @@
 	function onChangeTabAlign(align) {
 		const tabsEl = document.getElementById('tab-align');
 		tabsEl.align = align;
+	}
+
+	function onChangeFormType(event) {
+		const el = document.getElementById('form-type');
+		el.type = event.target.value
 	}
 
 	document.getElementById('password_confirm').customValidity = {

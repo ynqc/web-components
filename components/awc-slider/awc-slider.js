@@ -1,3 +1,5 @@
+"use strict";
+
 import '../awc-tooltip/awc-tooltip.js'
 import html from './awc-slider.html';
 
@@ -96,9 +98,16 @@ export default class AwcSlider extends HTMLElement {
 		return this.getAttribute('defaultvalue') || 0;
 	}
 
+	set defaultvalue(value) {
+		this.setAttribute('defaultvalue', value);
+	}
 
 	get vertical() {
 		return this.getAttribute('vertical') !== null;
+	}
+
+	set vertical(value) {
+		this.setAttribute('vertical', value);
 	}
 
 	focus() {

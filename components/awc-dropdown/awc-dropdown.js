@@ -1,8 +1,10 @@
+"use strict";
+
 import '../awc-option/awc-option'
 import '../awc-popover/awc-popover';
 import html from './awc-dropdown.html';
 
-export default class CSelect extends HTMLElement {
+export default class AwcDropdown extends HTMLElement {
 	static get observedAttributes() {
 		return ['value', 'disabled', 'type'];
 	}
@@ -105,12 +107,24 @@ export default class CSelect extends HTMLElement {
 		return this.getAttribute('type');
 	}
 
+	set type(value) {
+		this.setAttribute('type', value);
+	}
+
 	get search() {
 		return this.getAttribute('search') !== null;
 	}
 
+	set search(value) {
+		this.setAttribute("search", value);
+	}
+
 	get placeholder() {
 		return this.getAttribute('placeholder') || 'Please Select Item';
+	}
+
+	set placeholder(value) {
+		this.setAttribute("placeholder", value);
 	}
 
 	focus() {
@@ -212,7 +226,7 @@ export default class CSelect extends HTMLElement {
 				this.selectEl.readonly = true;
 				this.selectEl.value = this._text;
 				this.nodes = [...this.querySelectorAll(`awc-option:not([disabled])`)];
-				this.filter.textContent = '';
+				this.filterEl.textContent = '';
 				this.empty = false;
 			}
 			const place = this.querySelector(`awc-option[focusin]`);
@@ -235,20 +249,20 @@ export default class CSelect extends HTMLElement {
 			}
 		})
 		if (this.search) {
-			this.filter = this.shadowRoot.getElementById('filter');
+			this.filterEl = this.shadowRoot.getElementById('filter');
 			this.selectEl.addEventListener('input', (ev) => {
 				const value = this.selectEl.value.trim();
 				if (value === '') {
 					this.nodes = [...this.querySelectorAll(`awc-option:not([disabled])`)];
-					this.filter.textContent = '';
+					this.filterEl.textContent = '';
 				} else {
 					this.nodes = [
 						...this.querySelectorAll(
-							`awc-option[key*="${value}" i]:not([disabled])`
+							`awc-option[value*="${value}" i]:not([disabled])`
 						),
 					];
-					this.filter.textContent = `
-                    :host([search]) ::slotted(awc-option:not([key*="${value}" i]))
+					this.filterEl.textContent = `
+                    :host([search]) ::slotted(awc-option:not([value*="${value}" i]))
                     {
                         display:none;
                     }
@@ -348,5 +362,5 @@ export default class CSelect extends HTMLElement {
 }
 
 if (!customElements.get('awc-dropdown')) {
-	customElements.define('awc-dropdown', CSelect)
+	customElements.define('awc-dropdown', AwcDropdown)
 }

@@ -1,3 +1,5 @@
+"use strict";
+
 import '../awc-button/awc-button.js'
 import html from './awc-option.html';
 
@@ -12,6 +14,10 @@ class AwcOption extends HTMLElement {
 
 	get value() {
 		return this.getAttribute('value');
+	}
+
+	set value(value) {
+		this.setAttribute("value", value);
 	}
 
 	get disabled() {

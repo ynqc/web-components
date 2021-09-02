@@ -1,3 +1,6 @@
+
+"use strict";
+
 import html from './awc-form.html';
 import './awc-form-item';
 
@@ -19,33 +22,32 @@ export default class AwcForm extends HTMLElement {
 		return 'GET';
 	}
 
+	set method(value) {
+		this.setAttribute('method', value.toUpperCase());
+	}
+
 	get action() {
 		return this.getAttribute('action') || '';
+	}
+
+	set action(value) {
+		this.setAttribute('action', value);
+	}
+
+	get type() {
+		return this.getAttribute('type');
 	}
 
 	set type(value) {
 		this.setAttribute('type', value);
 	}
 
-	get validity() {
-		return this.elements.every((el) => el.validity);
-	}
-
 	get disabled() {
 		return this.getAttribute('disabled') !== null;
 	}
 
-	get formdata() {
-		const formdata = new FormData();
-		const jsondata = {};
-		if (!this.disabled) {
-			this.elements.forEach((el) => {
-				formdata.set(el.name, el.value);
-				jsondata[el.name] = el.value;
-			});
-		}
-		formdata.json = jsondata;
-		return formdata;
+	set disabled(value) {
+		this.setAttribute('disabled', value);
 	}
 
 	get novalidate() {
@@ -74,6 +76,27 @@ export default class AwcForm extends HTMLElement {
 
 	get name() {
 		return this.getAttribute('name');
+	}
+
+	set name(value) {
+		this.setAttribute('name', value);
+	}
+
+	get validity() {
+		return this.elements.every((el) => el.validity);
+	}
+
+	get formdata() {
+		const formdata = new FormData();
+		const jsondata = {};
+		if (!this.disabled) {
+			this.elements.forEach((el) => {
+				formdata.set(el.name, el.value);
+				jsondata[el.name] = el.value;
+			});
+		}
+		formdata.json = jsondata;
+		return formdata;
 	}
 
 	checkValidity() {

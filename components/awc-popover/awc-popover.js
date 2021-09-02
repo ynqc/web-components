@@ -1,3 +1,5 @@
+"use strict";
+
 import '../awc-button/awc-button';
 import AwcPopBody from './awc-popbody';
 import html from './awc-popover.html';
@@ -68,8 +70,16 @@ class AwcPopover extends HTMLElement {
 		return this.getAttribute('trigger');
 	}
 
+	set trigger(value) {
+		return this.setAttribute('trigger', value);
+	}
+
 	get content() {
 		return this.getAttribute('content');
+	}
+
+	set content(value) {
+		this.setAttribute('content', value);
 	}
 
 	show(ev) {
@@ -90,7 +100,6 @@ class AwcPopover extends HTMLElement {
 						this.dispatchEvent(new CustomEvent('cancel'));
 				}
 			}
-			this.popBodyEl.clientWidth;
 			if (this.trigger === 'contextmenu') {
 				const { x, y } = this.getBoundingClientRect();
 				this.popBodyEl.style.setProperty('--x', ev.clientX - x + 'px');

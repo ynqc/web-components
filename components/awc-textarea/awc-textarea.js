@@ -1,3 +1,5 @@
+"use strict";
+
 import AwcInput from '../awc-input/awc-input';
 
 class AwcTextarea extends AwcInput {

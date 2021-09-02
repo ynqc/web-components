@@ -1,3 +1,5 @@
+"use strict";
+
 import html from './awc-form-item.html';
 
 export default class AwcFormItem extends HTMLElement {

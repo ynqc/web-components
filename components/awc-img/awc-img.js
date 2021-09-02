@@ -1,3 +1,5 @@
+"use strict";
+
 import '../awc-icon/awc-icon';
 import html from './awc-img.html';
 
@@ -69,12 +71,24 @@ export default class AwcImg extends HTMLElement {
 		return this.getAttribute('defaultsrc');
 	}
 
+	set defaultsrc(value) {
+		this.setAttribute('defaultsrc', value);
+	}
+
     get lazy() {
 		return this.getAttribute('lazy') !== null;
 	}
 
+	set lazy(value) {
+		this.setAttribute('lazy', value);
+	}
+
 	get alt() {
 		return this.getAttribute('alt') || 'error';
+	}
+
+	set alt(value) {
+		this.setAttribute('alt', value);
 	}
 
 	load(src, hasload) {

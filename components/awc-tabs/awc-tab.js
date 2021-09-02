@@ -1,8 +1,10 @@
+"use strict";
+
 import html from './awc-tab.html';
 
 class AwcTab extends HTMLElement {
     static get observedAttributes() {
-        return ['label', 'key', 'disabled', 'icon'];
+        return ['label', 'value', 'disabled', 'icon'];
     }
     constructor() {
         super();
@@ -17,12 +19,12 @@ class AwcTab extends HTMLElement {
         this.setAttribute('label', value);
     }
 
-    get key() {
-        return this.getAttribute('key');
+    get value() {
+        return this.getAttribute('value');
     }
 
-    set key(value) {
-        this.setAttribute('key', value);
+    set value(value) {
+        this.setAttribute('value', value);
     }
 
     get disabled() {
@@ -41,16 +43,20 @@ class AwcTab extends HTMLElement {
         return this.getAttribute('icon');
     }
 
+    set icon(value) {
+        this.setAttribute('icon', value);
+    }
+
     attributeChangedCallback(name, oldValue, newValue) {
-        if (oldValue !== newValue && newValue !== undefined) {
+        if (oldValue !== newValue && newValue !== undefined && this.parentNode) {
             if (name === 'label') {
                 if (this.parentNode.updatalabel) {
-                    this.parentNode.updatalabel(this.key, newValue);
+                    this.parentNode.updatalabel(this.value, newValue);
                 }
             }
             if (name === 'disabled') {
                 if (this.parentNode.updatadisabled) {
-                    this.parentNode.updatadisabled(this.key, newValue);
+                    this.parentNode.updatadisabled(this.value, newValue);
                 }
             }
         }

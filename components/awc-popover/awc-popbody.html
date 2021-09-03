@@ -77,6 +77,19 @@
     :host(:not([type])) .popbody-body {
         padding: 0;
     }
+
+    .close-icon {
+        position: relative;
+        font-size: .9em;
+        transform: scaleY(.8);
+        margin-left: .5em;
+        pointer-events: none;
+        width: 1.5em;
+        height: 1.5em;
+        fill: currentColor;
+        transition: .3s transform cubic-bezier(.645, .045, .355, 1);
+    }
+    
 </style>
 <div class="popbody-content" id="popbody-content">
     <div class="popbody-body">

@@ -45,7 +45,7 @@ Each `awc-tab` can specify the `disabled` attribute to disable the tab page.
 
 Each `awc-tab` needs to specify an identification `value`, if no serial number is used as the default `value`,
 
-`value` works on `awc-tabs`, you can specify to switch to a specific tab page, or you can specify the initial value.
+`activeKey` works on `awc-tabs`, you can specify to switch to a specific tab page, or you can specify the initial activeKey.
 
 ```html
 <awc-tabs activeKey="B">

@@ -21,3 +21,6 @@ import AwcDialog from './components/awc-dialog/awc-dialog';
 import AwcMessage from './components/awc-message/awc-message';
 window.AwcDialog = AwcDialog;
 window.AwcMessage = AwcMessage;
+
+import './tokens.css';
+import './style.css';

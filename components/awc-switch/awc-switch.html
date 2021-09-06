@@ -21,7 +21,7 @@
 
     :host(:focus-within) label::after,
     :host(:active) ::after {
-        background: var(--themeColor, #42b983);
+        background: var(--themeColor, #307fe2);
     }
 
     :host(:focus-within) #switch,
@@ -36,7 +36,7 @@
         height: 1.2em;
         padding: .125em;
         border-radius: 1.2em;
-        background: #eee;
+        background: var(--grayColor);
         transition: .3s width, .3s height, .3s background-color;
     }
 
@@ -51,8 +51,8 @@
         width: .4em;
         height: .4em;
         border-radius: 1.2em;
-        border: .4em solid #fff;
-        background: #fff;
+        border: .4em solid var(--colorWhite);
+        background: var(--colorWhite);
         transition: .3s background, .3s padding, .3s width, .3s height, .3s border-radius, .3s border;
         box-shadow: 0 2px 4px 0 rgba(0, 35, 11, 0.2);
     }
@@ -62,7 +62,7 @@
     }
 
     #switch:checked+label {
-        background: var(--themeBackground, var(--themeColor, #42b983));
+        background: var(--themeColor, #307fe2);
     }
 
     #switch:checked+label::before {

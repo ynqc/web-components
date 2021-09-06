@@ -1,0 +1,3 @@
+1. js文件使用严格模式
+2. 不用非严格模式的语法，如delete object.name
+3. 如果标签对外暴漏的属性，必须有set和get，主要是解决在vue， react等项目的问题

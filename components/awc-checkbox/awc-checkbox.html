@@ -23,7 +23,7 @@
 
     :host(:focus-within) .cheked,
     :host(:not([disabled])) label:hover .cheked {
-        border-color: var(--themeColor, #42b983);
+        border-color: var(--themeColor);
         z-index: 1;
     }
 
@@ -33,7 +33,7 @@
     }
 
     :host([disabled]) .cheked {
-        background: rgba(0, 0, 0, .1);
+        background: var(--disabledColor);
     }
 
     label {
@@ -47,12 +47,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-right: .5em;
+        margin-right: var(--em-50);
         position: relative;
         width: 1em;
         height: 1em;
-        border: 0.0875em solid var(--borderColor, rgba(0, 0, 0, .2));
-        border-radius: 0.15em;
+        border: 1px solid var(--borderColor, rgba(0, 0, 0, .2));
+        border-radius: var(--em-125);
         text-align: initial;
         transition: .3s;
     }
@@ -65,10 +65,10 @@
         position: absolute;
         content: '';
         width: 74%;
-        height: 0.15em;
-        background: #fff;
+        height: var(--em-125);
+        background: var(--colorWhite);
         transform: scale(0);
-        border-radius: 0.15em;
+        border-radius: var(--em-125);
         transition: .2s cubic-bezier(.12, .4, .29, 1.46) .1s;
     }
 
@@ -77,7 +77,7 @@
         content: '';
         width: 100%;
         height: 100%;
-        background: var(--themeColor, #42b983);
+        background: var(--themeColor);
         border-radius: 50%;
         opacity: .2;
         transform: scale(0);
@@ -102,7 +102,7 @@
     #checkbox:checked+label .cheked,
     #checkbox:indeterminate+label .cheked {
         border-color: transparent;
-        background-color: var(--themeColor, #42b983);
+        background-color: var(--themeColor);
     }
 
     #checkbox:indeterminate+label .cheked::before {

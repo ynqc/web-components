@@ -30,7 +30,7 @@
 
     :host(:focus-within:not([disabled])),
     :host(:not([disabled]):hover) {
-        border-color: var(--themeColor, #42b983);
+        border-color: var(--themeColor);
     }
 
     :host([disabled]) {
@@ -48,7 +48,7 @@
     }
 
     :host .input::placeholder {
-        color: #999;
+        color: var(--placeholder-color);
     }
 
     :host(awc-textarea) {
@@ -117,13 +117,13 @@
         transition: transform .3s, color .3s, background-color .3s;
         transform-origin: left;
         padding: 0 0.14em;
-        color: #999;
+        color: var(--placeholder-color);
     }
 
     .input:not(:placeholder-shown)~.input-label,
     .input:focus~.input-label {
         transform: translateY(calc(-50% - 0.43em)) scale(0.8);
-        background: #fff;
+        background: var(--colorWhite);
     }
 
     .input:-moz-ui-invalid {
@@ -137,7 +137,7 @@
     .icon-pre {
         display: flex;
         margin-right: 0.25em;
-        color: #999;
+        color: var(--placeholder-color);
     }
 
     :host(awc-textarea) .icon-pre {
@@ -149,7 +149,7 @@
         height: 2em;
         margin: -.25em -.5em -.25em .25em;
         padding: 0;
-        color: #999;
+        color: var(--placeholder-color);
         font-size: inherit;
     }
 
@@ -163,7 +163,7 @@
 
     .btn-number awc-button {
         display: flex;
-        color: #999;
+        color: var(--placeholder-color);
         border-radius: 0;
         width: 100%;
         flex: 1;
@@ -178,14 +178,14 @@
 
     awc-button:not([disabled]):hover,
     awc-button:not([disabled]):focus-within {
-        color: var(--themeColor, #42b983);
+        color: var(--themeColor, #307fe2);
     }
 
     :host(:focus-within:not([disabled])) .icon-pre,
     :host(:not([disabled]):hover) .icon-pre,
     :host(:not([disabled]):hover) .input-label,
     :host(:focus-within:not([disabled])) .input-label {
-        color: var(--themeColor, #42b983);
+        color: var(--themeColor, #307fe2);
     }
 
     :host(:focus-within:not([disabled])) .btn-number,

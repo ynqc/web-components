@@ -2,7 +2,7 @@
     :host {
         position: relative;
         display: inline-flex;
-        padding: .25em .625em;
+        padding: var(--em-25) var(--em-625);
         box-sizing: border-box;
         vertical-align: middle;
         line-height: 1.8;
@@ -10,11 +10,16 @@
         align-items: center;
         justify-content: center;
         border: 1px solid var(--borderColor, rgba(0, 0, 0, .2));
-        font-size: 14px;
+        font-size: var(--fontSize14);
         color: var(--fontColor, #333333);
         border-radius: var(--borderRadius, .25em);
         transition: background .3s, box-shadow .3s, border-color .3s, color .3s;
+        outline: none;
+        -webkit-tap-highlight-color: transparent;
+        cursor: pointer;
     }
+
+
     :host([disabled]),
     :host([loading]) {
         pointer-events: none;
@@ -26,7 +31,8 @@
     }
 
     :host([disabled]:not([type])) {
-        background: rgba(0, 0, 0, .1);
+        background: var(--disabledColor);
+        border: none;
     }
 
     :host([disabled]) .btn,
@@ -37,34 +43,33 @@
 
     :host(:not([type="primary"]):not([disabled]):hover),
     :host(:not([type="primary"]):focus-within),
-    :host([type="flat"][focus]) {
-        color: var(--themeColor, #42b983);
-        border-color: var(--themeColor, #42b983);
+    :host([type="text"][focus]) {
+        color: var(--themeColor);
+        border-color: var(--themeColor);
     }
 
     :host(:not([type="primary"])) .btn::after {
-        background-image: radial-gradient(circle, var(--themeColor, #42b983) 10%, transparent 10.01%);
+        background-image: radial-gradient(circle, var(--themeColor) 10%, transparent 10.01%);
     }
 
     :host([type="primary"]) {
-        color: #fff;
-        background: var(--themeBackground, var(--themeColor, #42b983));
+        color: var(--colorWhite);
+        background: var(--themeColor);
     }
 
     :host([type="dashed"]) {
-        border-style: dashed
+        border-style: dashed;
     }
 
     :host([type="text"]),
     :host([type="primary"]) {
         border: 0;
-        padding: calc(.25em + 1px) calc(.625em + 1px);
+        padding: calc(var(--em-25) + 1px) calc(var(--em-625) + 1px);
     }
 
     :host([type="text"]) .btn::before {
         content: '';
         position: absolute;
-        background: var(--themeColor, #42b983);
         pointer-events: none;
         left: 0;
         right: 0;
@@ -102,7 +107,7 @@
     }
 
     awc-loading {
-        margin-right: 0.35em;
+        margin-right: var(--em-25);
     }
 
     ::-moz-focus-inner {
@@ -116,7 +121,7 @@
     }
 
     awc-icon {
-        margin-right: 0.35em;
+        margin-right: var(--em-25);
         transition: none;
     }
 
@@ -125,12 +130,12 @@
     }
 
     :host(:empty) {
-        padding: .65em;
+        padding: var(--em-625);
     }
 
     :host([type="text"]:empty),
     :host([type="primary"]:empty) {
-        padding: calc(.65em + 1px);
+        padding: calc(var(--em-625)+ 1px);
     }
 
     ::slotted(awc-icon) {

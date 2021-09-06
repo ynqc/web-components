@@ -6,7 +6,7 @@
     }
 
     :host([vertical]) {
-        height:var(--height, 300px);
+        height: 300px;
     }
 
     :host([disabled]) {
@@ -53,7 +53,7 @@
         position: relative;
         height: 2px;
         border-radius: 2px;
-        background: linear-gradient(to right, var(--themeColor, #42b983) calc(100% * var(--percent)), rgba(0, 0, 0, .1) 0%)
+        background: linear-gradient(to right, var(--themeColor, #307fe2) calc(100% * var(--percent)), var(--disabledColor) 0%)
     }
 
     input[type="range"]::-moz-range-progress {
@@ -63,35 +63,35 @@
         height: 2px;
         border-radius: 2px;
         outline: 0;
-        background: var(--themeColor, #42b983)
+        background: var(--themeColor, #307fe2)
     }
 
     input[type="range"]::-moz-range-track {
         height: 2px;
-        background: rgba(0, 0, 0, .1);
+        background: var(--disabledColor);
     }
 
     input[type="range"]::-webkit-slider-thumb {
         -webkit-appearance: none;
-        border: 2px solid var(--themeColor, #42b983);
+        border: 2px solid var(--themeColor, #307fe2);
         position: relative;
         margin-top: -4px;
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        background: var(--themeColor, #42b983);
+        background: var(--themeColor, #307fe2);
         transition: .2s cubic-bezier(.12, .4, .29, 1.46);
     }
 
     input[type="range"]::-moz-range-thumb {
         box-sizing: border-box;
         pointer-events: none;
-        border: 2px solid var(--themeColor, #42b983);
+        border: 2px solid var(--themeColor, #307fe2);
         position: relative;
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        background: var(--themeColor, #42b983);
+        background: var(--themeColor, #307fe2);
         transition: .2s cubic-bezier(.12, .4, .29, 1.46);
     }
 
@@ -102,15 +102,15 @@
     input[type="range"]::-webkit-slider-thumb:active,
     input[type="range"]:focus::-webkit-slider-thumb {
         transform: scale(1.2);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        background: #fff;
+        box-shadow: 0 0 10px var(--boxShadow);
+        background: var(--colorWhite);
     }
 
     input[type="range"]::-moz-range-thumb:active,
     input[type="range"]:focus::-moz-range-thumb {
         transform: scale(1.2);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        background: #fff;
+        box-shadow: 0 0 10px var(--boxShadow);
+        background: var(--colorWhite);
     }
 
     :host([vertical]) #slider-tooltip {

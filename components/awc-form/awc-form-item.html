@@ -4,12 +4,12 @@
     }
 
     label {
-        color: var(--fontColor, #333);
+        color: var(--fontColor);
     }
 
     label.required:not(:empty)::before {
         content: '*';
-        color: var(--errorColor, #f4615c);
+        color: var(--errorColor);
     }
 
     .item {

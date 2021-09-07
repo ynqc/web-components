@@ -1,22 +1,21 @@
 
 :root {
-    --themeColor: var(--color-brand-primary-base, #307fe2);
-    --borderColor: rgba(0, 0, 0, .2);
-    --fontColor: #333333;
-    --borderRadius: 0.25em;
-    --boxShadow: rgba(0, 0, 0, 0.15);
-    --disabledColor: rgba(0, 0, 0, .1);
-    --grayColor: #eee;
-    --successColor: #52c41a;
-    --errorColor: #f4615c;
-    --waringColor: #faad14;
-    --infoColor: #1890ff;
+    --theme-color: var(--color-brand-primary-base, #307fe2);
+    --border-color: rgba(0, 0, 0, .2);
+    --font-color: #333333;
+    --border-radius: 0.25em;
+    --box-shadow: rgba(0, 0, 0, 0.15);
+    --disabled-color: rgba(0, 0, 0, .1);
+    --gray-color: #EEE;
+    --success-color: #52c41a;
+    --error-color: #f4615c;
+    --waring-color: #faad14;
+    --info-color: #1890ff;
     --em-125: .125em;
     --em-25: .25em;
     --em-50: .5em;
-    --em-625: 0.625em;
-    --em-875: 0.0875em;
+    --em-625: .625em;
     --placeholder-color: #999;
-    --fontSize14: 14px;
-    --colorWhite: #fff;
+    --font-size-14: 14px;
+    --color-white: #FFF;
 }

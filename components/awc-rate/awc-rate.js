@@ -90,7 +90,7 @@ export default class AwcRate extends HTMLElement {
 
 	attributeChangedCallback(name, oldValue, newValue) {
 		if (name == 'color' && this.shadowRoot) {
-			this.style.setProperty('--themeColor', newValue);
+			this.style.setProperty('--theme-color', newValue);
 		}
 		if (name == 'size' && this.shadowRoot) {
 			this.style.fontSize = newValue + 'px';

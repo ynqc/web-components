@@ -297,7 +297,7 @@ This is a multi-level menu that supports `hover`, `focus`, and `click` triggers.
     justify-content: flex-start;
 }
 .pop-menu awc-popover:hover>awc-button,.pop-menu awc-popover:focus-within>awc-button{
-    color:var(--themeColor,#307fe2);
+    color:var(--theme-color,#307fe2);
 } 
 .pop-menu>awc-popbody awc-popbody{
     margin-left:-10px;

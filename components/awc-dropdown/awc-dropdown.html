@@ -1,8 +1,8 @@
 <style>
     :host {
         display: inline-block;
-        font-size: var(--fontSize14);
-        border-radius: var(--borderRadius, .25em);
+        font-size: var(--font-size-14, 14px);
+        border-radius: var(--border-radius, .25em);
     }
 
     :host([block]) {
@@ -11,13 +11,13 @@
 
     :host(:not([disabled]):not([type="primary"]):focus-within) .select,
     :host(:not([disabled]):not([type="primary"]):hover) .select {
-        border-color: var(--themeColor);
-        color: var(--themeColor);
+        border-color: var(--theme-color, #307fe2);
+        color: var(--theme-color, #307fe2);
     }
 
     :host([search]:focus-within:not([disabled])) .select,
     :host([search]:not([disabled]):hover) .select {
-        color: var(--themeColor);
+        color: var(--theme-color, #307fe2);
     }
 
     :host([disabled]) {
@@ -50,12 +50,12 @@
     }
 
     awc-tooltip[show=show] {
-        --themeColor: var(--errorColor);
-        --borderColor: var(--errorColor);
+        --theme-color: var(--error-color, #f4615c);
+        --border-color: var(--error-color, #f4615c);
     }
 
     :host([invalid]) .select:not([type="primary"]) {
-        color: var(--errorColor);
+        color: var(--error-color,#f4615c);
     }
 
     .select span {
@@ -116,9 +116,9 @@
         box-sizing: border-box;
         width: 100%;
         content: 'Did not match any options';
-        padding: var(--em-25) var(--em-625);
+        padding: var(--em-25, .25em) var(--em-625, .625em);
         line-height: 1.8;
-        color: var(--fontColor, #333);
+        color: var(--font-color, #333333);
         white-space: nowrap;
         opacity: .5;
     }

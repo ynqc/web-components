@@ -26,7 +26,7 @@
         line-height: 18px;
         text-align: left;
         background-color: var(--color, rgba(0, 0, 0, 0.75));
-        color: var(--colorWhite);
+        color: var(--color-white, #FFF);
         font-size: 12px;
         font-style: normal;
         width: max-content;
@@ -333,17 +333,17 @@
 
     /* success */
     :host([type="success"]) {
-        --color: var(--successColor, #52c41a);
+        --color: var(--success-color, #52c41a);
     }
 
     /* error */
     :host([type="error"]) {
-        --color: var(--errorColor, #f4615c);
+        --color: var(--error-color, #f4615c);
     }
 
     /* warning */
     :host([type="warning"]) {
-        --color: var(--waringColor, #faad14);
+        --color: var(--waring-color, #faad14);
     }
 
     slot {

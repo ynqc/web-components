@@ -15,7 +15,7 @@
 
     .simple-page {
         width: auto;
-        padding: 0 var(--em-625);
+        padding: 0 var(--em-625, .625em);
     }
 
     awc-button[tabindex] {
@@ -25,9 +25,9 @@
     }
 
     awc-button[current] {
-        background: var(--themeColor, #307fe2);
-        border-color: var(--themeColor, #307fe2);
-        color: var(--colorWhite);
+        background: var(--theme-color, #307fe2);
+        border-color: var(--theme-color, #307fe2);
+        color: var(--color-white, #FFF);
     }
 
     .page {

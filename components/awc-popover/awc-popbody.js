@@ -72,7 +72,7 @@ export default class AwcPopBody extends HTMLElement {
             // iconEL.setAttribute("id", "popbody-type");
             // iconEL.classList.add("popbody-type");
             // iconEL.name = "question-circle";
-            // iconEL.color = "var(--waringColor,#faad14)";
+            // iconEL.color = "var(--waring-color,#faad14)";
             // this.shadowRoot.prepend(iconEL);
             const footerEl = `<div class="popbody-footer">
                 <awc-button id="btn-cancel">${this.canceltext}</awc-button>

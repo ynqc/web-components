@@ -2,12 +2,12 @@
     :host {
         box-sizing: border-box;
         display: inline-block;
-        border: 1px solid var(--borderColor, rgba(0, 0, 0, .2));
-        border-radius: var(--borderRadius, .25em);
+        border: 1px solid var(--border-color, rgba(0, 0, 0, .2));
+        border-radius: var(--border-radius, .25em);
         line-height: 1.8;
         transition: border-color .3s, box-shadow .3s;
         padding: .25em .625em;
-        color: var(--fontColor, #333);
+        color: var(--font-color, #333333);
         font-size: 14px;
     }
 
@@ -16,21 +16,21 @@
     }
 
     awc-tooltip[show=show] {
-        color: var(--errorColor, #f4615c);
+        color: var(--error-color, #f4615c);
     }
 
     :host([invalid]) {
-        --themeColor: var(--errorColor, #f4615c);
-        border-color: var(--errorColor, #f4615c);
+        --theme-color: var(--error-color, #f4615c);
+        border-color: var(--error-color, #f4615c);
     }
 
     :host([invalid]) awc-icon {
-        color: var(--errorColor, #f4615c);
+        color: var(--error-color, #f4615c);
     }
 
     :host(:focus-within:not([disabled])),
     :host(:not([disabled]):hover) {
-        border-color: var(--themeColor);
+        border-color: var(--theme-color, #307fe2);
     }
 
     :host([disabled]) {
@@ -123,7 +123,7 @@
     .input:not(:placeholder-shown)~.input-label,
     .input:focus~.input-label {
         transform: translateY(calc(-50% - 0.43em)) scale(0.8);
-        background: var(--colorWhite);
+        background: var(--color-white, #FFF);
     }
 
     .input:-moz-ui-invalid {
@@ -178,14 +178,14 @@
 
     awc-button:not([disabled]):hover,
     awc-button:not([disabled]):focus-within {
-        color: var(--themeColor, #307fe2);
+        color: var(--theme-color, #307fe2);
     }
 
     :host(:focus-within:not([disabled])) .icon-pre,
     :host(:not([disabled]):hover) .icon-pre,
     :host(:not([disabled]):hover) .input-label,
     :host(:focus-within:not([disabled])) .input-label {
-        color: var(--themeColor, #307fe2);
+        color: var(--theme-color, #307fe2);
     }
 
     :host(:focus-within:not([disabled])) .btn-number,

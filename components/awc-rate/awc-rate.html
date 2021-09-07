@@ -3,7 +3,7 @@
         display: inline-flex;
         font-size: 20px;
         direction: rtl;
-        color: var(--grayColor);
+        color: var(--gray-color, #EEE);
     }
 
     label {
@@ -19,7 +19,7 @@
     }
 
     input[type="radio"]:checked~.star-item {
-        color: var(--themeColor, #307fe2);
+        color: var(--theme-color, #307fe2);
     }
 
     .star-item:hover awc-icon {
@@ -32,7 +32,7 @@
 
     :host(:not([disabled])) awc-tooltip.star-item:hover,
     :host(:not([disabled])) awc-tooltip.star-item:hover~.star-item {
-        color: var(--themeColor, #307fe2);
+        color: var(--theme-color, #307fe2);
     }
 
     :host([disabled]) input[type="radio"] {

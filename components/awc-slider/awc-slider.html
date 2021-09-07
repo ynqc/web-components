@@ -11,7 +11,7 @@
 
     :host([disabled]) {
         opacity: .8;
-        --themeColor: #999;
+        --theme-color: var(--placeholder-color, #999);
         cursor: not-allowed;
     }
 
@@ -53,7 +53,7 @@
         position: relative;
         height: 2px;
         border-radius: 2px;
-        background: linear-gradient(to right, var(--themeColor, #307fe2) calc(100% * var(--percent)), var(--disabledColor) 0%)
+        background: linear-gradient(to right, var(--theme-color, #307fe2) calc(100% * var(--percent)), var(--disabled-color, rgba(0, 0, 0, .1)) 0%)
     }
 
     input[type="range"]::-moz-range-progress {
@@ -63,35 +63,35 @@
         height: 2px;
         border-radius: 2px;
         outline: 0;
-        background: var(--themeColor, #307fe2)
+        background: var(--theme-color, #307fe2)
     }
 
     input[type="range"]::-moz-range-track {
         height: 2px;
-        background: var(--disabledColor);
+        background: var(--disabled-color, rgba(0, 0, 0, .1));
     }
 
     input[type="range"]::-webkit-slider-thumb {
         -webkit-appearance: none;
-        border: 2px solid var(--themeColor, #307fe2);
+        border: 2px solid var(--theme-color, #307fe2);
         position: relative;
         margin-top: -4px;
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        background: var(--themeColor, #307fe2);
+        background: var(--theme-color, #307fe2);
         transition: .2s cubic-bezier(.12, .4, .29, 1.46);
     }
 
     input[type="range"]::-moz-range-thumb {
         box-sizing: border-box;
         pointer-events: none;
-        border: 2px solid var(--themeColor, #307fe2);
+        border: 2px solid var(--theme-color, #307fe2);
         position: relative;
         width: 10px;
         height: 10px;
         border-radius: 50%;
-        background: var(--themeColor, #307fe2);
+        background: var(--theme-color, #307fe2);
         transition: .2s cubic-bezier(.12, .4, .29, 1.46);
     }
 
@@ -102,15 +102,15 @@
     input[type="range"]::-webkit-slider-thumb:active,
     input[type="range"]:focus::-webkit-slider-thumb {
         transform: scale(1.2);
-        box-shadow: 0 0 10px var(--boxShadow);
-        background: var(--colorWhite);
+        box-shadow: 0 0 10px var(--box-shadow, rgba(0, 0, 0, .3));
+        background: var(--color-white, #FFF);
     }
 
     input[type="range"]::-moz-range-thumb:active,
     input[type="range"]:focus::-moz-range-thumb {
         transform: scale(1.2);
-        box-shadow: 0 0 10px var(--boxShadow);
-        background: var(--colorWhite);
+        box-shadow: 0 0 10px var(--box-shadow, rgba(0, 0, 0, .3));
+        background: var(--color-white, #FFF);
     }
 
     :host([vertical]) #slider-tooltip {

@@ -2,17 +2,17 @@
     :host {
         position: relative;
         display: inline-flex;
-        padding: var(--em-25) var(--em-625);
+        padding: var(--em-25, .25em) var(--em-625, .625em);
         box-sizing: border-box;
         vertical-align: middle;
         line-height: 1.8;
         overflow: hidden;
         align-items: center;
         justify-content: center;
-        border: 1px solid var(--borderColor, rgba(0, 0, 0, .2));
-        font-size: var(--fontSize14);
-        color: var(--fontColor, #333333);
-        border-radius: var(--borderRadius, .25em);
+        border: 1px solid var(--border-color, rgba(0, 0, 0, .2));
+        font-size: var(--font-size-14, 14px);
+        color: var(--font-color, #333333);
+        border-radius: var(--border-radius, .25em);
         transition: background .3s, box-shadow .3s, border-color .3s, color .3s;
         outline: none;
         -webkit-tap-highlight-color: transparent;
@@ -31,7 +31,7 @@
     }
 
     :host([disabled]:not([type])) {
-        background: var(--disabledColor);
+        background: var(--disabled-color, rgba(0, 0, 0, .1));
         border: none;
     }
 
@@ -44,17 +44,17 @@
     :host(:not([type="primary"]):not([disabled]):hover),
     :host(:not([type="primary"]):focus-within),
     :host([type="text"][focus]) {
-        color: var(--themeColor);
-        border-color: var(--themeColor);
+        color: var(--theme-color, #307fe2);
+        border-color: var(--theme-color, #307fe2);
     }
 
     :host(:not([type="primary"])) .btn::after {
-        background-image: radial-gradient(circle, var(--themeColor) 10%, transparent 10.01%);
+        background-image: radial-gradient(circle, var(--theme-color, #307fe2) 10%, transparent 10.01%);
     }
 
     :host([type="primary"]) {
-        color: var(--colorWhite);
-        background: var(--themeColor);
+        color: var(--color-white, #FFF);
+        background: var(--theme-color, #307fe2);
     }
 
     :host([type="dashed"]) {
@@ -64,7 +64,7 @@
     :host([type="text"]),
     :host([type="primary"]) {
         border: 0;
-        padding: calc(var(--em-25) + 1px) calc(var(--em-625) + 1px);
+        padding: calc(var(--em-25, .25em) + 1px) calc(var(--em-625, .625em) + 1px);
     }
 
     :host([type="text"]) .btn::before {
@@ -107,7 +107,7 @@
     }
 
     awc-loading {
-        margin-right: var(--em-25);
+        margin-right: var(--em-25, .25em);
     }
 
     ::-moz-focus-inner {
@@ -121,7 +121,7 @@
     }
 
     awc-icon {
-        margin-right: var(--em-25);
+        margin-right: var(--em-25, .25em);
         transition: none;
     }
 
@@ -130,12 +130,12 @@
     }
 
     :host(:empty) {
-        padding: var(--em-625);
+        padding: var(--em-625, .625em);
     }
 
     :host([type="text"]:empty),
     :host([type="primary"]:empty) {
-        padding: calc(var(--em-625)+ 1px);
+        padding: calc(var(--em-625, .625em)+ 1px);
     }
 
     ::slotted(awc-icon) {

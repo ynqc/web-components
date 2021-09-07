@@ -4,14 +4,14 @@
         position: relative;
         vertical-align: top;
         overflow: hidden;
-        background: var(--colorWhite);
+        background: var(--color-white, #FFF);
         font-size: 14px;
     }
 
     :host([alt]:not([default]))::before {
         content: attr(alt);
         position: absolute;
-        color: var(--colorWhite);
+        color: var(--color-white, #FFF);
         left: 0;
         right: 0;
         bottom: 0;
@@ -157,7 +157,7 @@
         top: 50%;
         transform: translate(-50%, -50%) scale(2);
         opacity: 0;
-        color: var(--colorWhite);
+        color: var(--color-white, #FFF);
         display: none;
         font-size: 40px;
         transition: .3s;
@@ -171,7 +171,7 @@
 
     .animation .shape {
         border-radius: 50%;
-        background: var(--themeColor, #307fe2);
+        background: var(--theme-color, #307fe2);
     }
 
     .animation {

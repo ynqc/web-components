@@ -30,7 +30,7 @@
     }
 
     :host(:not([type="line"])) .nav-item.active {
-        color: var(--themeColor, #307fe2);
+        color: var(--theme-color, #307fe2);
     }
 
     .tab-line {
@@ -39,7 +39,7 @@
         margin-top: -2px;
         height: 2px;
         border-radius: 2px;
-        background: var(--themeColor, #307fe2);
+        background: var(--theme-color, #307fe2);
         transition: .2s;
     }
 
@@ -66,16 +66,16 @@
     }
 
     :host([type="line"]) .nav-item {
-        border-radius: var(--borderRadius, .25em) var(--borderRadius, .25em) 0 0;
+        border-radius: var(--border-radius, .25em) var(--border-radius, .25em) 0 0;
     }
 
     :host([type="card"]) .nav-item.active,
     :host([type="card"]) .tab-content {
-        background-color: var(--colorWhite);
+        background-color: var(--color-white, #FFF);
     }
 
     :host([type="line"]) .nav-item.active {
-        border-color: var(--borderColor, rgba(0, 0, 0, .2)) var(--borderColor, rgba(0, 0, 0, .2)) transparent;
+        border-color: var(--border-color, rgba(0, 0, 0, .2)) var(--border-color, rgba(0, 0, 0, .2)) transparent;
     }
 
     :host([type="line"]) .tab-nav-con {
@@ -94,7 +94,7 @@
         width: 9999px;
         height: 1px;
         bottom: 0;
-        background: var(--borderColor, rgba(0, 0, 0, .2));
+        background: var(--border-color, rgba(0, 0, 0, .2));
     }
 
     :host([type="line"]) .tab-line::before {

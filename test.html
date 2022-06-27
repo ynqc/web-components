@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>web components js</title>
+    <style>
+        .content {
+            width: 300px;
+            height: auto;
+            border: 3px solid #307fe2;
+            padding: 20px;
+            margin: 20px;
+        }
+
+        #box:before {
+            content: "#";
+        }
+
+        #box:after {
+            content: ".";
+        }
+
+        .justify-self {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-auto-rows: 40px;
+            grid-gap: 10px;
+            width: 300px;
+            justify-items: stretch;
+        }
+
+        .justify-self span:nth-child(2) {
+            justify-self: start;
+        }
+
+        .justify-self span:nth-child(3) {
+            justify-self: center;
+        }
+
+        .justify-self span:nth-child(4) {
+            justify-self: end;
+        }
+
+        .justify-self span,
+        .align-self span {
+            background-color: black;
+            color: white;
+        }
+
+        .align-self {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-auto-rows: 40px;
+            grid-gap: 10px;
+            width: 300px;
+            justify-items: stretch;
+        }
+
+        .align-self span:nth-child(2) {
+            align-self: start;
+        }
+
+        .align-self span:nth-child(3) {
+            align-self: center;
+        }
+
+        .align-self span:nth-child(4) {
+            align-self: end;
+        }
+
+        .div {
+            width: 160px;
+            height: 80px;
+            padding: 20px;
+            border: 8px solid red;
+            background: yellow;
+        }
+
+        .content-box {
+            box-sizing: content-box;
+            /* Total width: 160px + (2 * 20px) + (2 * 8px) = 216px
+            Total height: 80px + (2 * 20px) + (2 * 8px) = 136px
+            Content box width: 160px
+            Content box height: 80px */
+        }
+
+        .border-box {
+            box-sizing: border-box;
+            /* Total width: 160px
+                Total height: 80px
+                Content box width: 160px - (2 * 20px) - (2 * 8px) = 104px
+                Content box height: 80px - (2 * 20px) - (2 * 8px) = 24px */
+        }
+
+        .em-size {
+            width: 20em;
+            height: 20em;
+            background-color: aliceblue;
+        }
+
+        /* div.div1 > p {
+            color: blue;
+        } */
+
+
+        /* .div1 div + p {
+            color: red;
+        } */
+
+        /* .div1 div ~ p {
+            color: green;
+        } */
+
+        .div1 * {
+            color: yellow;
+        } 
+
+        .loading {
+            display: block;
+            width: 1em;
+            height: 1em;
+            margin: auto;
+            animation: rotate 1.4s linear infinite;
+        }
+
+        /* .circle {
+            stroke: currentColor;
+            animation: progress 1.4s ease-in-out infinite;
+            stroke-dasharray: 80px, 200px;
+            stroke-dashoffset: 0px;
+            transition: .3s;
+        } */
+
+        @keyframes rotate {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        a {
+            /* -webkit-tap-highlight-color: transparent; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <h3>
+            :before和:after伪元素
+        </h3>
+        <p id="box">Other content</p>
+    </div>
+
+    <div class="content">
+        <h3>
+            justify-self
+        </h3>
+        <article class="justify-self">
+            <span>stretch ：默认值</span>
+            <span>start</span>
+            <span>center</span>
+            <span>end</span>
+        </article>
+    </div>
+
+    <div class="content">
+        <h3>
+            align-self
+        </h3>
+        <article class="align-self">
+            <span>stretch ：默认值</span>
+            <span>start</span>
+            <span>center</span>
+            <span>end</span>
+        </article>
+    </div>
+
+    <div class="content">
+        <h3>Box-sizing</h3>
+        <div id="common-div" class="div">common div</div>
+        <br>
+        <div id="content-box" class="content-box div">Content box</div>
+        <br>
+        <div id="border-box" class="border-box div">Border box</div>
+    </div>
+
+    <div class="content">
+        <h3>EM</h3>
+        <div class="em-size"></div>
+    </div>
+
+    <div class="content">
+        <h3>CSS 选择器符号</h3>
+        <div class="div1">
+            <p>First</p>
+            <div>
+                <p>First p - child</p>
+            </div>
+            <p>Second</p>
+            <p>Third</p>
+        </div>
+    </div>
+
+    <div class="content">
+        <h3>stroke-dasharray</h3>
+        <svg class="loading" id="loading" viewBox="22 22 44 44">
+            <circle class="circle" cx="44" cy="44" r="20.2" fill="none" stroke-width="3.6"></circle>
+        </svg>
+    </div>
+
+    <div class="content">
+        <h3>-webkit-tap-highlight-color</h3>
+        <a href="#">link</a>
+    </div>
+</body>
+<script type="text/javascript">
+    const commonEl = document.getElementById('common-div');
+    const contentBoxEl = document.getElementById('content-box');
+    const borderBoxEl = document.getElementById('border-box');
+    console.log('common div', commonEl.clientWidth, commonEl.clientHeight);
+    console.log('content box', contentBoxEl.clientWidth, contentBoxEl.clientHeight);
+    console.log('border box', borderBoxEl.clientWidth, borderBoxEl.clientHeight);
+</script>
+
+</html>

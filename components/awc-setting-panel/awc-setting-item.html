@@ -1,0 +1,17 @@
+<style>
+    :host {
+        display: contents;
+    }
+
+    label {
+        color: var(--font-color, #333333);
+    }
+
+    .item {
+        justify-self: stretch;
+    }
+</style>
+<label></label>
+<div class="item">
+    <slot id="slot"></slot>
+</div>

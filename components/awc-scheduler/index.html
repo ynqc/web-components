@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>web components js</title>
+    <script type="module" src="./awc-scheduler.js"></script>
+</head>
+
+<body>
+    <div class="content" id="settings-panel">
+		<h3>SCHEDULER PANEL</h3>
+		<h4>default</h4>
+        <awc-scheduler onchange="onChange(event)"></awc-scheduler>
+	</div>
+</body>
+<script type="text/javascript">
+    function onChange(event) {
+		console.log(event);
+	}
+</script>
+
+</html>

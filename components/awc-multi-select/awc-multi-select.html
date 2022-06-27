@@ -1,0 +1,128 @@
+<style>
+    :host {
+        display: block;
+    }
+    :host([search]) .multiselect-field-input, :host([search]) input:focus {
+        width: 60px;
+        border: none;
+        outline:none;
+    }
+
+    /* .multiselect-field:not(:focus-within) input {
+        display: none;
+    }
+
+    .multiselect-field:focus-within input {
+        display: inline-block;
+    } */
+
+    .multiselect {
+        position: relative;
+        box-sizing: border-box;
+        display: inline-block;
+        width: var(--min-width, 20em);
+        background-color: var(--color-white);
+    }
+
+    .multiselect-field {
+        overflow: hidden;
+        padding: var(--em-25, 0.25em) var(--em-25, 0.25em) 0 var(--em-25, 0.25em);
+        border: 1px solid var(--border-color, rgba(0, 0, 0, .2));
+        border-radius: var(--em-25, 0.25em);
+        cursor: pointer;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    .multiselect-field-placeholder {
+        padding: var(--em-25, 0.25em) var(--em-50, 0.5em);
+        margin-bottom: var(--em-25, 0.25em);
+        color: var(--font-color, #333);
+        line-height: 1;
+    }
+
+    .multiselect-tag {
+        position: relative;
+        display: inline-block;
+        padding: var(--em-25, 0.25em) 1.5em var(--em-25, 0.25em) var(--em-50, 0.5em);
+        border: 1px solid var(--border-color, rgba(0, 0, 0, .2));
+        border-radius: var(--em-25, 0.25em);
+        margin: 0 .2em .2em 0;
+        line-height: 1;
+        vertical-align: middle;
+    }
+
+    .multiselect-tag:last-child {
+        margin-right: 0;
+    }
+
+    .multiselect-tag:hover {
+        background: var(--hover-background-gray, #efefef);
+    }
+
+    .multiselect-tag-text {
+        min-height: 1em;
+    }
+
+    .multiselect-tag-remove-button {
+        position: absolute;
+        top: .25em;
+        right: .25em;
+        width: 1em;
+        height: 1em;
+        opacity: 0.3;
+    }
+
+    .multiselect-tag-remove-button:hover {
+        opacity: 1;
+    }
+
+    .multiselect-tag-remove-button:before,
+    .multiselect-tag-remove-button:after {
+        content: '';
+        position: absolute;
+        left: .5em;
+        width: 2px;
+        height: 1em;
+        background-color: var(--font-color, #333);
+    }
+
+    .multiselect-tag-remove-button:before {
+        transform: rotate(45deg);
+    }
+
+    .multiselect-tag-remove-button:after {
+        transform: rotate(-45deg);
+    }
+
+    .multiselect-popup {
+        position: absolute;
+        z-index: 1000;
+        display: none;
+        overflow-y: auto;
+        width: 100%;
+        max-height: var(--min-height, 300px);
+        box-sizing: border-box;
+        border: 1px solid var(--border-color, rgba(0, 0, 0, .2));
+        border-radius: var(--em-25, 0.25em);
+        background: white;
+    }
+
+    .multiselect-list {
+        padding: 0;
+        margin: 0;
+    }
+
+    ::slotted(awc-option:hover), ::slotted(awc-option:focus-within){
+        background-color: var(--hover-item-color, #e8f2ff);
+    }
+</style>
+
+<div class="multiselect" id="awc-multiselect">
+    <div class="multiselect-field" tabindex="0"></div>
+    <div class="multiselect-popup">
+        <ul class="multiselect-list">
+            <slot></slot>
+        </ul>
+    </div>
+</div>

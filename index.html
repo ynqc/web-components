@@ -110,6 +110,7 @@
 
 <body>
 	<div class="header">
+        <a href="#settings-panel" class="header-link">icon</a>
 		<a href="#icon" class="header-link">icon</a>
 		<a href="#loading" class="header-link">loading</a>
 		<a href="#button" class="header-link">button</a>
@@ -131,6 +132,19 @@
 		<a href="#slide" class="header-link">slide</a>
 		<a href="#tab" class="header-link">tab</a>
 		<a href="#image" class="header-link">image</a>
+        <a href="#multiSelect" class="header-link">Multi Select</a>
+	</div>
+    <div class="content" id="settings-panel">
+		<h3>SETTINGS PANEL</h3>
+		<h4>default</h4>
+        <awc-setting-panel name="Date">
+            <awc-setting-item legend="FromDate">
+                <awc-input name="fromDate" placeholder="fromDate"></awc-input>
+            </awc-setting-item>
+            <awc-setting-item legend="EndDate">
+                <awc-input name="endDate" placeholder="endDate"></awc-input>
+            </awc-setting-item>
+		</awc-setting-panel>
 	</div>
 	<div class="content" id="icon">
 		<h3>ICON</h3>
@@ -1129,6 +1143,49 @@
 			<awc-tab label="tab2">tab2</awc-tab>
 			<awc-tab label="tab3">tab3</awc-tab>
 		</awc-tabs>
+	</div>
+    <div class="content" id="multiSelect">
+		<h3>MULTISELECT</h3>
+		<h4>Default</h4>
+        <awc-multiselect placeholder="Select Value">
+            <awc-option value="1" selected>Item 1</awc-option>
+            <awc-option value="2">Item 2</awc-option>
+            <awc-option value="3" selected>Item 3</awc-option>
+            <awc-option value="4">Item 4</awc-option>
+            <awc-option value="5" selected>Item 5</awc-option>
+            <awc-option value="6">Item 6</awc-option>
+            <awc-option value="7" selected>Itemdsfsdfafsd 7</awc-option>
+        </awc-multiselect>
+        <h4>Disabled</h4>
+        <awc-multiselect placeholder="Select Value" disabled>
+            <awc-option value="1" selected>Item 1</awc-option>
+            <awc-option value="2">Item 2</awc-option>
+            <awc-option value="3" selected>Item 3</awc-option>
+            <awc-option value="4">Item 4</awc-option>
+            <awc-option value="5" selected>Item 5</awc-option>
+            <awc-option value="6">Item 6</awc-option>
+            <awc-option value="7" selected>Itemdsfsdfafsd 7</awc-option>
+        </awc-multiselect>
+        <h4>Search</h4>
+        <awc-multiselect placeholder="Select Value" search>
+            <awc-option value="1">Item 1</awc-option>
+            <awc-option value="2">Item 2</awc-option>
+            <awc-option value="3">Item 3</awc-option>
+            <awc-option value="4">Item 4</awc-option>
+            <awc-option value="5">Item 5</awc-option>
+            <awc-option value="6">Item 6</awc-option>
+            <awc-option value="7">Itemdsfsdfafsd 7</awc-option>
+        </awc-multiselect>
+        <h4>Event</h4>
+        <awc-multiselect placeholder="Select Value" onchange="onChange(event)" search>
+            <awc-option value="1">Item 1</awc-option>
+            <awc-option value="2">Item 2</awc-option>
+            <awc-option value="3">Item 3</awc-option>
+            <awc-option value="4">Item 4</awc-option>
+            <awc-option value="5">Item 5</awc-option>
+            <awc-option value="6">Item 6</awc-option>
+            <awc-option value="7">Itemdsfsdfafsd 7</awc-option>
+        </awc-multiselect>
 	</div>
 </body>
 <script type="text/javascript">

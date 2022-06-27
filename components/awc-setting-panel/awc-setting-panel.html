@@ -1,0 +1,44 @@
+<style>
+    :host {
+        display: block;
+        border: 1px solid var(--border-color, rgba(0, 0, 0, .2));
+        width: fit-content;
+        padding: 20px;
+        border-radius: var(--border-radius, 0.25em);
+        position: relative;
+    }
+
+    #panel-name {
+        font-weight: bold;
+        position: absolute;
+        left: 20px;
+        top: -12px;
+        background: #FFF;
+    }
+
+    #panel {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-gap: .8em;
+        align-items: center;
+        justify-items: end;
+    }
+
+    :host([type=full]) #panel {
+        grid-template-columns: 1fr;
+        justify-items: start;
+    }
+
+    :host([type=none]) #panel {
+        display: contents;
+    }
+
+    :host(:not([type=full])) ::slotted(:not(awc-setting-item)) {
+        justify-self: stretch;
+        grid-column: span 2;
+    }
+</style>
+<span id="panel-name"></span>
+<div id="panel">
+    <slot id="slot"></slot>
+</div>

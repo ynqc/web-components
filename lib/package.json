@@ -6,12 +6,15 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "webpack serve --open --config webpack.dev.js",
 		"copy": "cp package.json dist/ && cp README.md dist/ && cp LICENSE dist/",
-		"build": "webpack --config webpack.prod.js && npm run copy"
+		"build": "webpack --config webpack.prod.js"
 	},
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/ynqc/web-components.git"
 	},
+    "browser": {
+        "fs": false
+    },
 	"keywords": [
 		"web-components",
 		"javascript"

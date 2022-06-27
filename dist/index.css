@@ -1400,6 +1400,10 @@
     --placeholder-color: #999;
     --font-size-14: 14px;
     --color-white: #FFF;
+    --min-width: 20em;
+    --min-height: 300px;
+    --hover-background-gray: #efefef;
+    --hover-item-color: #e8f2ff;
 }
 
 /*# sourceMappingURL=index.css.map*/

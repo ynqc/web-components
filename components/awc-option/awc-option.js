@@ -40,6 +40,7 @@ class AwcOption extends HTMLElement {
 		}
 	}
 
+	// awc-dropdown使用该属性
 	set focusin(value) {
 		if (value) {
 			this.setAttribute('focusin', '');

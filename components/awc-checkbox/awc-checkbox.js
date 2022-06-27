@@ -96,6 +96,7 @@ export default class AwcCheckbox extends HTMLElement {
 					detail: {
 						checked: this.checked,
 					},
+					// bubbles: true
 				})
 			);
 		});
